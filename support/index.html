@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>心脉助手 (HeartWave) - 技术支持</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+            line-height: 1.8; color: #1d1d1f; background: #f5f5f7;
+            padding: 0 16px;
+        }
+        .container { max-width: 760px; margin: 0 auto; padding: 40px 0 60px; }
+        h1 { font-size: 30px; font-weight: 700; margin-bottom: 8px; letter-spacing: 0; }
+        .subtitle { font-size: 16px; color: #6e6e73; margin-bottom: 8px; }
+        .update-date { font-size: 14px; color: #86868b; margin-bottom: 32px; }
+        h2 { font-size: 20px; font-weight: 600; margin: 32px 0 12px; color: #1d1d1f; }
+        h3 { font-size: 16px; font-weight: 600; margin: 18px 0 8px; }
+        p, li { font-size: 15px; color: #424245; margin-bottom: 12px; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 6px; }
+        a { color: #06c; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .hero {
+            background: #fff; border-radius: 12px; padding: 24px;
+            margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        .card {
+            background: #fff; border-radius: 12px; padding: 20px;
+            margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        .notice {
+            background: #eef5ff; border-left: 4px solid #007aff;
+            padding: 12px 16px; border-radius: 8px; margin: 16px 0;
+        }
+        .notice p { margin-bottom: 0; color: #174ea6; font-weight: 500; }
+        .warning {
+            background: #fff3e0; border-left: 4px solid #ff9800;
+            padding: 12px 16px; border-radius: 8px; margin: 16px 0;
+        }
+        .warning p { margin-bottom: 0; color: #e65100; font-weight: 500; }
+        .grid {
+            display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px; margin: 16px 0;
+        }
+        .quick-link {
+            display: block; background: #fff; border-radius: 12px; padding: 18px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        .quick-link strong { display: block; color: #1d1d1f; margin-bottom: 4px; }
+        .quick-link span { display: block; color: #6e6e73; font-size: 14px; }
+        .footer {
+            text-align: center; font-size: 13px; color: #86868b;
+            margin-top: 40px; padding-top: 20px; border-top: 1px solid #d2d2d7;
+        }
+        @media (max-width: 640px) {
+            .container { padding-top: 28px; }
+            .grid { grid-template-columns: 1fr; }
+            h1 { font-size: 26px; }
+        }
+        @media (prefers-color-scheme: dark) {
+            body { background: #1c1c1e; color: #f5f5f7; }
+            h1, h2, h3, .quick-link strong { color: #f5f5f7; }
+            p, li { color: #a1a1a6; }
+            .subtitle, .quick-link span { color: #a1a1a6; }
+            .hero, .card, .quick-link { background: #2c2c2e; box-shadow: none; }
+            .notice { background: #10243f; }
+            .notice p { color: #8ec5ff; }
+            .warning { background: #3e2723; }
+            .warning p { color: #ffb74d; }
+            .footer { border-color: #3a3a3c; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <h1>心脉助手技术支持</h1>
+        <p class="subtitle">HeartWave Support</p>
+        <p class="update-date">最后更新：2026 年 5 月 24 日</p>
+        <p>欢迎使用心脉助手。如果您在安装、权限设置、数据记录、Apple 健康连接、提醒通知或报告导出过程中遇到问题，可以通过本页面获取帮助并联系我们。</p>
+    </div>
+
+    <div class="notice">
+        <p>通常我们会在 3 个工作日内回复邮件。请勿在邮件中发送身份证件、完整病历或其他不必要的敏感信息。</p>
+    </div>
+
+    <h2>联系我们</h2>
+    <div class="card">
+        <p>支持邮箱：<a href="mailto:heartwave_app@163.com">heartwave_app@163.com</a></p>
+        <p>反馈问题时，建议附上以下信息，方便我们定位：</p>
+        <ul>
+            <li>您的设备型号与 iOS 版本</li>
+            <li>心脉助手 App 版本号</li>
+            <li>问题发生的页面或操作步骤</li>
+            <li>错误提示截图，或可复现问题的简要说明</li>
+        </ul>
+    </div>
+
+    <h2>常见问题</h2>
+    <div class="card">
+        <h3>无法读取 Apple 健康数据怎么办？</h3>
+        <p>请打开 iPhone 的“设置”或“健康”App，检查心脉助手是否已获得对应健康数据的读取权限。权限关闭时，应用只能显示您在心脉助手中手动记录的数据。</p>
+    </div>
+
+    <div class="card">
+        <h3>为什么没有收到用药或测量提醒？</h3>
+        <p>请确认系统通知权限已开启，并在心脉助手的提醒设置中启用对应提醒。若您关闭了用药提醒，通知、Widget 和 Live Activity 中也不会继续显示用药提醒内容。</p>
+    </div>
+
+    <div class="card">
+        <h3>Widget 或 Live Activity 为什么不显示药品名称？</h3>
+        <p>出于隐私保护，心脉助手默认不会在通知、Widget 和 Live Activity 中显示药品名称或剂量。您可以在应用内提醒设置中主动开启药品详情显示。</p>
+    </div>
+
+    <div class="card">
+        <h3>如何删除本地健康数据？</h3>
+        <p>您可以在应用内删除个人档案及其关联数据，也可以卸载应用删除本机保存的数据。如需撤销 Apple 健康权限，请前往 iOS 系统设置或“健康”App 中管理。</p>
+    </div>
+
+    <h2>重要说明</h2>
+    <div class="warning">
+        <p>心脉助手不是医疗设备，不提供医学诊断、治疗建议或用药调整建议。应用中的趋势、评分和报告仅供个人健康管理参考。如有健康疑虑，请咨询专业医疗人员。</p>
+    </div>
+
+    <h2>相关链接</h2>
+    <div class="grid">
+        <a class="quick-link" href="../privacy-policy/">
+            <strong>隐私政策</strong>
+            <span>了解数据存储、权限和第三方 SDK 说明</span>
+        </a>
+        <a class="quick-link" href="../terms-of-use/">
+            <strong>用户协议</strong>
+            <span>查看服务说明、用户责任和免责声明</span>
+        </a>
+    </div>
+
+    <h2>English Support</h2>
+    <div class="card">
+        <p>For HeartWave support, please contact <a href="mailto:heartwave_app@163.com">heartwave_app@163.com</a>. Include your device model, iOS version, app version, and a brief description of the issue.</p>
+        <p>HeartWave is a personal health record and wellness reference app. It does not diagnose, treat, or provide medication adjustment advice.</p>
+    </div>
+
+    <div class="footer">
+        <p>© 2026 心脉助手 (HeartWave). All rights reserved.</p>
+    </div>
+</div>
+</body>
+</html>
