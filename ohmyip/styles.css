@@ -70,6 +70,8 @@ a {
 .nav-links {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
     gap: 22px;
     font-size: 14px;
 }
@@ -146,6 +148,12 @@ h1 {
     letter-spacing: -0.025em;
 }
 
+.section-intro {
+    max-width: 680px;
+    margin: -10px 0 24px;
+    color: var(--muted);
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -210,6 +218,34 @@ h1 {
     align-items: center;
     justify-content: space-between;
     gap: 24px;
+}
+
+.service-callout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 36px;
+    border-color: rgba(23, 105, 224, 0.22);
+    background:
+        linear-gradient(135deg, rgba(23, 105, 224, 0.10), rgba(46, 205, 151, 0.08)),
+        var(--surface);
+}
+
+.service-callout > div {
+    max-width: 650px;
+}
+
+.service-callout .section-title {
+    margin-bottom: 12px;
+}
+
+.eyebrow.compact {
+    margin: 0 0 9px;
+}
+
+.application-address {
+    margin-top: 14px;
+    font-size: 14px;
 }
 
 .button {
@@ -300,9 +336,14 @@ footer p {
     }
 
     .contact,
+    .service-callout,
     footer {
         align-items: flex-start;
         flex-direction: column;
+    }
+
+    .service-callout .button {
+        width: 100%;
     }
 }
 
