@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="OhMyIp privacy policy and information about public IP, location, API keys, and local storage.">
+    <title>OhMyIp 隐私政策</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header class="shell nav">
+        <a class="brand" href="../" aria-label="返回 OhMyIp 技术支持">
+            <img src="../icon.png" alt="OhMyIp 图标">
+            <span>OhMyIp</span>
+        </a>
+        <nav class="nav-links" aria-label="主导航">
+            <a href="../">技术支持</a>
+            <a href="#english">English</a>
+        </nav>
+    </header>
+
+    <main class="shell section prose">
+        <p class="eyebrow">Privacy Policy</p>
+        <h1>OhMyIp 隐私政策</h1>
+        <p>生效及最后更新日期：2026 年 9 月 6 日</p>
+
+        <div class="notice">
+            <p>OhMyIp 无需注册账号，不包含广告或跨 App 跟踪。应用设置、预期 IP、城市查询缓存均保存在你的 Mac 本地。</p>
+        </div>
+
+        <h2>1. 适用范围</h2>
+        <p>本隐私政策适用于 macOS 应用 OhMyIp。OhMyIp 是一款菜单栏网络工具，用于展示公网 IP、国家、可选的城市信息，以及判断当前 IP 是否符合用户设置的预期值。</p>
+
+        <h2>2. 处理的数据</h2>
+        <h3>公网 IP 与国家</h3>
+        <p>应用启动、手动刷新或按你设置的时间间隔自动刷新时，会访问 country.is 获取当前公网 IP 和国家代码。任何网络请求都会使服务提供方看到发起请求的公网 IP。OhMyIp 不运营自己的服务器，也不会在开发者服务器上保存这些请求。</p>
+
+        <h3>可选的城市与地区查询</h3>
+        <p>只有在你主动添加 APILayer IPapi API Key 后，OhMyIp 才会将当前公网 IP 和该 API Key 发送给 APILayer IPapi，以返回城市、地区和国家信息。API Key 与 APILayer 账户由你自行管理，并受 APILayer 的条款及隐私政策约束。</p>
+
+        <h3>应用设置与诊断信息</h3>
+        <p>预期 IP、是否启用监控、自动刷新间隔及城市查询缓存保存在应用沙盒的本地偏好设置中。APILayer API Key 保存在 macOS 钥匙串中。OhMyIp 不接入第三方广告、分析或崩溃报告 SDK。</p>
+
+        <h2>3. 处理目的与数据关联</h2>
+        <p>公网 IP 与粗略位置仅用于提供应用功能：展示网络出口信息、判断预期 IP 是否匹配，以及显示用户主动请求的城市信息。这些数据不用于广告，不用于跨 App 或网站跟踪。使用 APILayer 时，服务方可能依据你的 API Key 将请求与 APILayer 账户关联。</p>
+
+        <h2>4. 缓存与请求频率</h2>
+        <p>为减少 APILayer 免费套餐的请求次数，OhMyIp 会按公网 IP 缓存成功的城市查询结果。公网 IP 未变化时，应用优先读取本地缓存，而不会重复请求城市接口。刷新公网 IP 和国家信息仍会访问 country.is。</p>
+
+        <h2>5. 第三方服务</h2>
+        <ul>
+            <li><strong>country.is</strong>：提供公网 IP 与国家查询。请参阅 <a href="https://country.is/">country.is 网站</a>发布的隐私说明。</li>
+            <li><strong>APILayer IPapi</strong>：在你主动配置 API Key 后提供城市与地区查询。请参阅 <a href="https://apilayer.com/privacy">APILayer 隐私政策</a>与服务条款。</li>
+            <li><strong>Apple ServiceManagement</strong>：在你启用登录启动时，由 macOS 管理 OhMyIp 登录项状态。</li>
+        </ul>
+        <p>我们要求处理 OhMyIp 功能数据的第三方依据其公开政策和适用法律提供与本政策一致或同等水平的保护。若第三方服务的实际做法发生重大变化，我们会评估影响、更新本政策，并在必要时停止相关集成。</p>
+
+        <h2>6. 删除与控制</h2>
+        <ul>
+            <li>在 OhMyIp 设置中清除预期 IP 配置、城市缓存与 APILayer API Key。</li>
+            <li>在 macOS“系统设置 → 通用 → 登录项”中关闭登录启动。</li>
+            <li>卸载 OhMyIp 可删除应用沙盒内的本地数据；你也可以先在应用内删除钥匙串中的 API Key。</li>
+        </ul>
+
+        <h2>7. 儿童隐私</h2>
+        <p>OhMyIp 不面向 13 岁以下儿童，不会故意收集儿童个人信息。</p>
+
+        <h2>8. 政策更新与联系我们</h2>
+        <p>如本政策发生重要变化，我们会更新本页面及顶部日期。如有隐私问题，请发送邮件至 <a href="mailto:heartwave_app@163.com?subject=OhMyIp%20Privacy">heartwave_app@163.com</a>。请勿通过邮件发送 API Key。</p>
+
+        <hr>
+
+        <section id="english" lang="en">
+            <p class="eyebrow">English</p>
+            <h1>OhMyIp Privacy Policy</h1>
+            <p>Effective and last updated: September 6, 2026</p>
+
+            <div class="notice">
+                <p>OhMyIp requires no OhMyIp account and contains no advertising or cross-app tracking. App preferences, the expected IP, and city lookup results are stored locally on your Mac.</p>
+            </div>
+
+            <h2>1. Scope</h2>
+            <p>This policy applies to the OhMyIp macOS application. OhMyIp is a menu bar utility that displays a public IP address, country, optional city information, and whether the current IP matches a value configured by the user.</p>
+
+            <h2>2. Data processed</h2>
+            <h3>Public IP address and country</h3>
+            <p>When the app starts, refreshes automatically, or is refreshed manually, it contacts country.is to retrieve the current public IP address and country code. Any network request makes the originating public IP visible to the service provider. OhMyIp operates no developer server and does not retain these requests on a developer server.</p>
+
+            <h3>Optional city and region lookup</h3>
+            <p>Only after you add an APILayer IPapi API key does OhMyIp send the current public IP and that API key to APILayer IPapi to retrieve city, region, and country information. You manage the API key and APILayer account, which are subject to APILayer's own terms and privacy policy.</p>
+
+            <h3>App preferences</h3>
+            <p>The expected IP, monitoring choice, refresh interval, and city lookup cache are stored in the app's local preferences. The APILayer API key is stored in the macOS Keychain. OhMyIp includes no third-party advertising, analytics, or crash-reporting SDK.</p>
+
+            <h2>3. Purpose, linking, and tracking</h2>
+            <p>Public IP and coarse location information are used only to provide app functionality. They are not used for advertising or tracking across apps or websites. When APILayer is used, that provider may associate requests with your APILayer account through your API key.</p>
+
+            <h2>4. Local caching</h2>
+            <p>To conserve requests under APILayer plans, OhMyIp caches a successful city response by public IP. If the public IP has not changed, the app uses the local cache instead of repeating the city request. Refreshing public IP and country information still contacts country.is.</p>
+
+            <h2>5. Your controls</h2>
+            <ul>
+                <li>Clear expected-IP settings, city cache, and the APILayer API key inside OhMyIp settings.</li>
+                <li>Disable launch at login in macOS System Settings → General → Login Items.</li>
+                <li>Uninstall OhMyIp to remove sandboxed app data. You may first remove the API key inside the app.</li>
+            </ul>
+
+            <h2>6. Third-party protection</h2>
+            <p>We require third parties that process data for OhMyIp functionality to provide protection consistent with or equivalent to this policy under their published policies and applicable law. If a provider's practices materially change, we will assess the impact, update this policy, and discontinue the integration when necessary. See the published policies of <a href="https://country.is/">country.is</a> and <a href="https://apilayer.com/privacy">APILayer</a>.</p>
+
+            <h2>7. Contact</h2>
+            <p>For privacy questions, email <a href="mailto:heartwave_app@163.com?subject=OhMyIp%20Privacy">heartwave_app@163.com</a>. Do not send API keys by email.</p>
+        </section>
+    </main>
+
+    <footer class="shell">
+        <p>© 2026 OhMyIp. All rights reserved.</p>
+        <p><a href="../">返回技术支持 / Back to Support</a></p>
+    </footer>
+</body>
+</html>
