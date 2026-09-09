@@ -49,7 +49,7 @@
                 </article>
                 <article class="card">
                     <h3>城市信息与本地缓存</h3>
-                    <p>添加自己的 APILayer IPapi API Key 后可以查看城市信息。查询结果会按公网 IP 缓存在本机，同一个 IP 不会重复消耗接口额度。</p>
+                    <p>可使用 IPWhois.io 免费接口查询城市；添加自己的 APILayer API Key 后会优先使用 APILayer。查询结果按公网 IP 缓存在本机，同一个 IP 不会重复请求。</p>
                 </article>
                 <article class="card">
                     <h3>自动刷新与网络感知</h3>
@@ -57,11 +57,19 @@
                 </article>
                 <article class="card">
                     <h3>网络延迟检测</h3>
-                    <p>通过你指定的 HTTPS 基准地址测量往返延迟，结果直接显示在公网 IP 旁边。该数值用于了解连接响应速度，不代表下载速度。</p>
+                    <p>通过固定的 Google 官网 HTTPS 地址测量往返延迟，结果直接显示在公网 IP 旁边。该数值用于了解连接响应速度，不代表下载速度。</p>
                 </article>
                 <article class="card">
                     <h3>本地 IP 历史</h3>
                     <p>在设置的“IP 历史”中查看这台 Mac 使用过的公网 IP、国家、城市、首次发现时间、最近使用时间和出现次数。</p>
+                </article>
+                <article class="card">
+                    <h3>IP 变化通知</h3>
+                    <p>启用预期 IP 监控后，当公网 IP 发生变化时可通过 macOS 本地通知及时提醒。通知权限由系统管理，可随时关闭。</p>
+                </article>
+                <article class="card">
+                    <h3>本地网络流量</h3>
+                    <p>查看当前物理网络接口的上传、下载速率及本机累计流量。只读取系统接口计数，不检查数据包内容、域名或其他 App 身份。</p>
                 </article>
                 <article class="card">
                     <h3>登录时启动</h3>
@@ -79,7 +87,7 @@
                 <div>
                     <p class="eyebrow compact">IP check service</p>
                     <h2 class="section-title" id="ip-check-service-title">申请 IP 检查服务</h2>
-                    <p>如果你需要检查固定出口 IP、代理或 VPN 状态，或希望为团队配置专属的 IP 检查方案，可以发送邮件说明使用场景、检查频率和设备数量。</p>
+                    <p>如果你需要检查固定公网出口是否符合预期，或希望为团队配置专属的 IP 检查方案，可以发送邮件说明使用场景、检查频率和设备数量。</p>
                     <p class="application-address">申请地址：<a href="mailto:heartwave_app@163.com?subject=OhMyIp%20IP%20检查服务申请">heartwave_app@163.com</a></p>
                 </div>
                 <a class="button" href="mailto:heartwave_app@163.com?subject=OhMyIp%20IP%20检查服务申请&amp;body=使用场景：%0A检查频率：%0A设备数量：%0A其他需求：">申请 IP 检查服务</a>
@@ -95,7 +103,7 @@
                 </article>
                 <article class="card">
                     <h3>城市信息为什么没有显示？</h3>
-                    <p>请确认已添加有效的 APILayer IPapi API Key、Mac 可以联网且免费套餐仍有请求额度。公网 IP 未变化时会直接使用本地缓存。</p>
+                    <p>请确认 Mac 可以联网。未配置 APILayer Key 时会使用 IPWhois.io 免费接口；已配置时请同时确认 Key 有效且仍有请求额度。公网 IP 未变化时会直接使用本地缓存。</p>
                 </article>
                 <article class="card">
                     <h3>为什么状态点没有出现？</h3>
@@ -107,7 +115,7 @@
                 </article>
                 <article class="card">
                     <h3>应用需要登录账户吗？</h3>
-                    <p>不需要。OhMyIp 没有账号系统。可选的城市查询使用你自己的 APILayer 账户 API Key，该账户由 APILayer 独立提供和管理。</p>
+                    <p>不需要。OhMyIp 没有账号系统。城市查询可直接使用 IPWhois.io 免费接口；可选的 APILayer API Key 及其账户由 APILayer 独立提供和管理。</p>
                 </article>
             </div>
         </section>
