@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="OhMyIp for macOS 功能介绍、使用帮助、IP 检查服务申请与隐私信息。">
+    <meta name="description" content="OhMyIp for macOS 功能介绍、使用帮助与隐私信息。">
     <title>OhMyIp 功能介绍与技术支持</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -49,7 +49,7 @@
                 </article>
                 <article class="card">
                     <h3>城市信息与本地缓存</h3>
-                    <p>可使用 IPWhois.io 免费接口查询城市；添加自己的 APILayer API Key 后会优先使用 APILayer。查询结果按公网 IP 缓存在本机，同一个 IP 不会重复请求。</p>
+                    <p>使用 IPWhois.io 免费 HTTPS 接口查询城市和地区。查询结果按公网 IP 缓存在本机，同一个 IP 不会重复请求。</p>
                 </article>
                 <article class="card">
                     <h3>自动刷新与网络感知</h3>
@@ -77,20 +77,8 @@
                 </article>
                 <article class="card">
                     <h3>隐私友好的本地设置</h3>
-                    <p>OhMyIp 不需要账户，也不会进行跨 App 跟踪。预期 IP、城市缓存和历史记录保存在本机，API Key 安全存放在 macOS 钥匙串中。</p>
+                    <p>OhMyIp 不需要账户，也不会进行跨 App 跟踪。预期 IP、城市缓存、历史记录和流量汇总均保存在本机。</p>
                 </article>
-            </div>
-        </section>
-
-        <section class="shell section" id="ip-check-service" aria-labelledby="ip-check-service-title">
-            <div class="card service-callout">
-                <div>
-                    <p class="eyebrow compact">IP check service</p>
-                    <h2 class="section-title" id="ip-check-service-title">申请 IP 检查服务</h2>
-                    <p>如果你需要检查固定公网出口是否符合预期，或希望为团队配置专属的 IP 检查方案，可以发送邮件说明使用场景、检查频率和设备数量。</p>
-                    <p class="application-address">申请地址：<a href="mailto:heartwave_app@163.com?subject=OhMyIp%20IP%20检查服务申请">heartwave_app@163.com</a></p>
-                </div>
-                <a class="button" href="mailto:heartwave_app@163.com?subject=OhMyIp%20IP%20检查服务申请&amp;body=使用场景：%0A检查频率：%0A设备数量：%0A其他需求：">申请 IP 检查服务</a>
             </div>
         </section>
 
@@ -103,7 +91,7 @@
                 </article>
                 <article class="card">
                     <h3>城市信息为什么没有显示？</h3>
-                    <p>请确认 Mac 可以联网。未配置 APILayer Key 时会使用 IPWhois.io 免费接口；已配置时请同时确认 Key 有效且仍有请求额度。公网 IP 未变化时会直接使用本地缓存。</p>
+                    <p>请确认 Mac 可以联网并且 IPWhois.io 服务可访问。公网 IP 未变化时会直接使用本地缓存。</p>
                 </article>
                 <article class="card">
                     <h3>为什么状态点没有出现？</h3>
@@ -111,11 +99,11 @@
                 </article>
                 <article class="card">
                     <h3>如何删除保存的数据？</h3>
-                    <p>可在设置中清除预期 IP、城市缓存和 API Key。卸载应用会删除沙盒内的本地设置；登录项也可在 macOS 系统设置中关闭。</p>
+                    <p>可在设置中清除预期 IP、城市缓存和 IP 历史。卸载应用会删除沙盒内的本地设置；登录项也可在 macOS 系统设置中关闭。</p>
                 </article>
                 <article class="card">
                     <h3>应用需要登录账户吗？</h3>
-                    <p>不需要。OhMyIp 没有账号系统。城市查询可直接使用 IPWhois.io 免费接口；可选的 APILayer API Key 及其账户由 APILayer 独立提供和管理。</p>
+                    <p>不需要。OhMyIp 没有账号系统、订阅或购买项目，城市查询直接使用 IPWhois.io 免费接口。</p>
                 </article>
             </div>
         </section>
@@ -124,7 +112,7 @@
             <div class="card contact">
                 <div>
                     <h2 class="section-title" id="contact-title">仍然需要帮助？</h2>
-                    <p>请在邮件中附上 macOS 版本、OhMyIp 版本、问题复现步骤和错误提示。请勿发送 API Key 或其他敏感信息。</p>
+                    <p>请在邮件中附上 macOS 版本、OhMyIp 版本、问题复现步骤和错误提示。请勿发送公网 IP 或其他敏感信息。</p>
                 </div>
                 <a class="button" href="mailto:heartwave_app@163.com?subject=OhMyIp%20Support">发送支持邮件</a>
             </div>
