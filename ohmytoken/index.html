@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="OhMyToken 是面向 iPhone 与 Mac 的 AI Agent 额度和 Token 用量看板，支持菜单栏、小组件、趋势与本机消耗汇总。">
+    <meta name="theme-color" content="#f5f9ff">
+    <title>OhMyToken — Agent 额度与 Token 用量</title>
+    <link rel="icon" href="icon.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="shell nav">
+        <a class="brand" href="./" aria-label="OhMyToken 首页">
+            <img src="icon.png" alt="OhMyToken 图标">
+            <span>OhMyToken</span>
+        </a>
+        <nav class="nav-links" aria-label="主导航">
+            <a href="#features">功能</a>
+            <a href="#privacy">隐私</a>
+            <a href="support/">技术支持</a>
+            <a href="privacy/">隐私政策</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="shell hero">
+            <div class="hero-copy">
+                <img class="hero-icon" src="icon.png" alt="OhMyToken 应用图标">
+                <p class="eyebrow">AI Agent usage dashboard</p>
+                <h1>每一份 Token，<br>都心里有数。</h1>
+                <p class="lede">在 iPhone 与 Mac 上集中查看 Agent 服务的剩余额度、重置时间、使用节奏与本机 Token 消耗。</p>
+                <div class="pills" aria-label="产品特点">
+                    <span class="pill">iOS 17+</span>
+                    <span class="pill">macOS 14+</span>
+                    <span class="pill">本地优先</span>
+                    <span class="pill">无广告与跟踪</span>
+                </div>
+                <div class="actions">
+                    <a class="button" href="#features">了解功能</a>
+                    <a class="button secondary" href="support/">查看使用帮助</a>
+                </div>
+            </div>
+            <div class="dashboard" aria-label="额度看板示意图">
+                <div class="dashboard-head">
+                    <span class="dashboard-title">额度总览</span>
+                    <span class="dashboard-status">● 已更新</span>
+                </div>
+                <div class="quota-card">
+                    <div class="quota-row"><span class="quota-name">Session</span><span class="quota-value">72%</span></div>
+                    <div class="quota-meta">剩余 · 2 小时 18 分后重置</div>
+                    <div class="meter"><span style="width:72%"></span></div>
+                </div>
+                <div class="quota-card">
+                    <div class="quota-row"><span class="quota-name">Weekly</span><span class="quota-value">48%</span></div>
+                    <div class="quota-meta">剩余 · 当前节奏正常</div>
+                    <div class="meter"><span style="width:48%"></span></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="shell providers" aria-label="支持的服务">
+            <span class="provider">Codex</span>
+            <span class="provider">Claude</span>
+            <span class="provider">Gemini</span>
+            <span class="provider">GitHub Copilot</span>
+            <span class="provider">Grok</span>
+            <span class="provider">Cursor</span>
+        </div>
+
+        <section class="shell section" id="features" aria-labelledby="features-title">
+            <p class="eyebrow compact">Core features</p>
+            <h2 class="section-title" id="features-title">把分散的额度，放进同一个视野。</h2>
+            <p class="section-intro">从快速确认剩余，到理解消耗节奏，OhMyToken 将常用信息整理成清晰、可行动的本地看板。</p>
+            <div class="grid">
+                <article class="card"><div class="card-icon">◫</div><h3>多服务集中查看</h3><p>统一呈现多个 Agent 服务的剩余额度、重置时间、计划与状态，不必反复切换客户端。</p></article>
+                <article class="card"><div class="card-icon">↗</div><h3>趋势与节奏评估</h3><p>基于设备本地保存的额度历史，观察一小时趋势、近五小时用量速率和预计用完时间。</p></article>
+                <article class="card"><div class="card-icon">01</div><h3>本机 Token 汇总</h3><p>Mac 版在明确授权后，只读分析本机会话记录，按日期与来源汇总 Codex、Grok Token 消耗。</p></article>
+                <article class="card"><div class="card-icon">▰</div><h3>菜单栏快速总览</h3><p>无需打开完整窗口，在菜单栏查看最低剩余、账号状态和主要额度，随时手动刷新。</p></article>
+                <article class="card"><div class="card-icon">◇</div><h3>桌面与主屏幕小组件</h3><p>通过 Widget 快速掌握最新快照。主应用更新数据后，小组件会按节流策略及时同步。</p></article>
+                <article class="card"><div class="card-icon">⌁</div><h3>安全的本地保存</h3><p>手动连接的凭证保存在系统钥匙串，额度快照和趋势历史保存在应用沙盒或 App Group 中。</p></article>
+            </div>
+        </section>
+
+        <section class="section" id="privacy" aria-labelledby="privacy-title">
+            <div class="shell split">
+                <div>
+                    <p class="eyebrow compact">Privacy by design</p>
+                    <h2 class="section-title" id="privacy-title">你的凭证，不经过我们的服务器。</h2>
+                    <p class="section-intro">OhMyToken 没有开发者运营的中转服务器，不包含广告、分析或跨 App 跟踪 SDK。</p>
+                    <a class="button secondary" href="privacy/">阅读完整隐私政策</a>
+                </div>
+                <div class="principles">
+                    <div class="principle"><span class="check">✓</span><div><strong>读取前明确授权</strong><span>macOS 本机 Agent 登录和会话读取默认关闭，可在设置中随时撤销。</span></div></div>
+                    <div class="principle"><span class="check">✓</span><div><strong>只读、不修改客户端文件</strong><span>OhMyToken 不替 Agent 客户端写入配置，也不修改或删除其登录与会话记录。</span></div></div>
+                    <div class="principle"><span class="check">✓</span><div><strong>设备直接请求服务商</strong><span>额度查询从设备直接发往你选择的第三方服务商，不经开发者服务器中转。</span></div></div>
+                    <div class="principle"><span class="check">✓</span><div><strong>随时断开与删除</strong><span>你可以断开单个账号，删除 OhMyToken 保存的凭证、快照与趋势记录。</span></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="shell section" id="faq" aria-labelledby="faq-title">
+            <p class="eyebrow compact">FAQ</p>
+            <h2 class="section-title" id="faq-title">常见问题</h2>
+            <div class="grid two">
+                <article class="card"><h3>这里的 Token 是链上资产吗？</h3><p>不是。OhMyToken 中的 Token 指 AI Agent 和模型处理输入、输出时使用的计量单位，以及账号对应的使用额度。</p></article>
+                <article class="card"><h3>需要注册 OhMyToken 账号吗？</h3><p>不需要。应用没有自己的账号系统；你连接的是已经拥有的第三方 Agent 服务账号。</p></article>
+                <article class="card"><h3>为什么 Mac 首次启动没有自动读取？</h3><p>为了透明和可控，本机 Agent 读取默认关闭。请在授权卡片或“设置 → 本机读取”中明确允许。</p></article>
+                <article class="card"><h3>服务商名称是否代表官方合作？</h3><p>不代表。相关名称仅用于说明兼容服务。OhMyToken 是独立应用，与所列第三方服务商不存在隶属、赞助或背书关系。</p></article>
+            </div>
+        </section>
+
+        <section class="shell section" id="contact" aria-labelledby="contact-title">
+            <div class="card contact">
+                <div><p class="eyebrow compact">Support</p><h2 class="section-title" id="contact-title">遇到问题？</h2><p>查看连接、刷新、小组件和本机读取的排查步骤，或通过邮件联系我们。请勿发送真实 Token、Cookie 或完整登录文件。</p></div>
+                <div class="actions"><a class="button secondary" href="support/">技术支持</a><a class="button" href="mailto:935517644@qq.com?subject=OhMyToken%20Support">发送邮件</a></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="shell">
+        <p>© 2026 OhMyToken. All rights reserved.</p>
+        <p><a href="support/">技术支持</a> · <a href="privacy/">隐私政策</a></p>
+    </footer>
+</body>
+</html>

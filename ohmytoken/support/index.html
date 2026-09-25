@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="OhMyToken 技术支持：连接 Agent 服务、额度刷新、本机读取、Token 汇总和小组件常见问题。">
+    <title>OhMyToken 技术支持</title>
+    <link rel="icon" href="../icon.png">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header class="shell nav">
+        <a class="brand" href="../" aria-label="返回 OhMyToken 首页"><img src="../icon.png" alt="OhMyToken 图标"><span>OhMyToken</span></a>
+        <nav class="nav-links" aria-label="主导航"><a href="../">产品介绍</a><a href="#faq">常见问题</a><a href="../privacy/">隐私政策</a></nav>
+    </header>
+
+    <main>
+        <section class="shell support-hero prose">
+            <img class="hero-icon" src="../icon.png" alt="OhMyToken 应用图标">
+            <p class="eyebrow">Technical Support</p>
+            <h1>OhMyToken 技术支持</h1>
+            <p class="lede">连接、刷新、本机读取和小组件问题，都可以从这里开始排查。</p>
+            <div class="notice"><p>请勿通过邮件发送访问令牌、Cookie、刷新令牌、完整登录文件，或包含真实账号信息的截图。</p></div>
+        </section>
+
+        <section class="shell section" aria-labelledby="start-title">
+            <h2 class="section-title" id="start-title">快速开始</h2>
+            <div class="grid two">
+                <article class="card"><h3>iPhone / iOS</h3><ol class="steps"><li>打开 OhMyToken，选择需要连接的服务。</li><li>按照连接页说明完成授权或粘贴所需凭据。</li><li>连接成功后返回总览，手动刷新确认额度。</li><li>添加主屏幕小组件以查看最近快照。</li></ol></article>
+                <article class="card"><h3>Mac / macOS</h3><ol class="steps"><li>首次打开时阅读本机访问说明。</li><li>选择“允许只读访问”后，应用才会检查本机 Agent 登录。</li><li>在设置中选择 Provider 的自动、显示或关闭状态。</li><li>需要时开启本机 Token 消耗扫描。</li></ol></article>
+            </div>
+        </section>
+
+        <section class="shell section" id="faq" aria-labelledby="faq-title">
+            <h2 class="section-title" id="faq-title">常见问题</h2>
+            <div class="grid two">
+                <article class="card"><h3>显示“未连接”怎么办？</h3><p>确认对应官方客户端或 CLI 已登录，并重新打开连接页。若使用手动连接，请确认凭据完整、未过期且属于对应服务。</p></article>
+                <article class="card"><h3>为什么刷新失败或显示数据过期？</h3><p>先确认网络及对应服务可用，再执行手动刷新。服务商接口、账号计划或登录状态变化也可能导致暂时无法取得额度；旧快照会标记为过期而不会伪装成实时数据。</p></article>
+                <article class="card"><h3>为什么授权后仍检测不到本机 Agent？</h3><p>确认客户端使用默认数据目录并已完成登录。沙盒版本只能读取应用声明的只读目录；自定义安装路径可能无法自动识别，可尝试连接页提供的手动方式。</p></article>
+                <article class="card"><h3>如何撤销本机读取授权？</h3><p>打开“设置 → 本机读取”，关闭“允许读取本机 Agent 登录与会话”。自动刷新和本机会话扫描会立即停止，已保存的额度快照仍可查看。</p></article>
+                <article class="card"><h3>为什么没有本机 Token 消耗数据？</h3><p>本机消耗目前以可识别的 Codex、Grok 会话记录为来源。请确认已授权本机读取、开启消耗扫描，并且所选时间范围内存在会话记录。</p></article>
+                <article class="card"><h3>小组件没有更新怎么办？</h3><p>先打开主应用并完成一次刷新。小组件读取主应用写入 App Group 的最近快照，系统可能根据电量和使用情况调整刷新时间。</p></article>
+                <article class="card"><h3>如何断开账号并删除数据？</h3><p>在账号详情中选择断开账号。OhMyToken 会删除自己保存的该账号凭据、快照和趋势记录，但不会删除或修改第三方 Agent 客户端自己的文件。</p></article>
+                <article class="card"><h3>支持哪些系统？</h3><p>当前版本支持 iOS 17 或更高版本，以及 macOS 14 或更高版本。Mac 版提供菜单栏、本机 Agent 检测和本机会话汇总。</p></article>
+            </div>
+        </section>
+
+        <section class="shell section" aria-labelledby="contact-title">
+            <div class="card contact">
+                <div><h2 class="section-title" id="contact-title">联系我们</h2><p>请附上设备型号、系统版本、OhMyToken 版本、服务名称、错误提示和复现步骤。通常会在三个工作日内回复。</p></div>
+                <a class="button" href="mailto:935517644@qq.com?subject=OhMyToken%20Support">935517644@qq.com</a>
+            </div>
+        </section>
+
+        <section class="shell section prose" lang="en">
+            <h2>English Support</h2>
+            <p>For OhMyToken support, email <a href="mailto:935517644@qq.com?subject=OhMyToken%20Support">935517644@qq.com</a>. Include your device, OS version, OhMyToken version, provider name, error message, and reproduction steps. Never send access tokens, cookies, refresh tokens, or complete credential files.</p>
+        </section>
+    </main>
+
+    <footer class="shell"><p>© 2026 OhMyToken. All rights reserved.</p><p><a href="../">产品介绍</a> · <a href="../privacy/">隐私政策</a></p></footer>
+</body>
+</html>
