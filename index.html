@@ -45,7 +45,34 @@
 
         * { box-sizing: border-box; }
 
+        @font-face {
+            font-family: "Geist";
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url("fonts/geist-sans-400.woff2") format("woff2");
+        }
+
+        @font-face {
+            font-family: "Geist";
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url("fonts/geist-sans-500.woff2") format("woff2");
+        }
+
+        @font-face {
+            font-family: "Geist";
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url("fonts/geist-sans-600.woff2") format("woff2");
+        }
+
         html { background: var(--bg); }
+
+        html:not([lang="en"]) .en { display: none; }
+        html[lang="en"] .zh { display: none; }
 
         body {
             margin: 0;
@@ -90,13 +117,68 @@
             line-height: 1.35;
         }
 
+        .tools {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            margin-top: 1px;
+        }
+
+        .langs {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.28rem;
+            color: #8a8a8a;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            line-height: 1;
+            text-transform: uppercase;
+            user-select: none;
+        }
+
+        html.dark .langs { color: var(--faint); }
+
+        .langs button {
+            position: relative;
+            margin: 0;
+            padding: 0 0 2px;
+            border: 0;
+            background: none;
+            color: inherit;
+            font: inherit;
+            letter-spacing: inherit;
+            text-transform: inherit;
+            cursor: pointer;
+        }
+
+        .langs button[data-lang="zh-Hans"] { letter-spacing: 0.02em; }
+
+        .langs button:hover,
+        .langs button[aria-pressed="true"] { color: var(--fg); }
+
+        .langs button[aria-pressed="true"]::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 1px;
+            background: currentColor;
+        }
+
+        .tool-rule {
+            width: 1px;
+            height: 16px;
+            background: var(--line);
+        }
+
         .theme {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 28px;
             height: 28px;
-            margin-top: 1px;
             padding: 0;
             border: 0;
             border-radius: 999px;
@@ -108,12 +190,44 @@
         .theme:hover { color: var(--fg); }
 
         .theme:focus-visible,
+        .langs button:focus-visible,
         .item-link:focus-visible,
         .sub a:focus-visible,
         .intro a:focus-visible,
         .foot a:focus-visible {
             outline: 2px solid var(--fg);
             outline-offset: 3px;
+        }
+
+        html[lang="en"] body {
+            font-family: "Geist", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif;
+            font-weight: 400;
+            font-synthesis: none;
+            line-height: 1.5;
+            letter-spacing: -0.011em;
+        }
+
+        html[lang="en"] h1,
+        html[lang="en"] .role,
+        html[lang="en"] .section-label,
+        html[lang="en"] .title,
+        html[lang="en"] .intro a,
+        html[lang="en"] .sub a,
+        html[lang="en"] .foot a {
+            font-weight: 500;
+        }
+
+        html[lang="en"] h1,
+        html[lang="en"] .role {
+            font-size: 17px;
+            line-height: 1.35;
+        }
+
+        html[lang="en"] .desc { line-height: 1.5; }
+
+        html[lang="en"] .badge {
+            font-weight: 600;
+            letter-spacing: 0.08em;
         }
 
         .sun { display: none; }
@@ -299,9 +413,10 @@
     </style>
     <script>
         try {
-            var saved = localStorage.getItem("theme");
-            var dark = saved === "dark" || (!saved && matchMedia("(prefers-color-scheme: dark)").matches);
+            var savedTheme = localStorage.getItem("theme");
+            var dark = savedTheme === "dark" || (!savedTheme && matchMedia("(prefers-color-scheme: dark)").matches);
             if (dark) document.documentElement.classList.add("dark");
+            if (localStorage.getItem("lang") === "en") document.documentElement.lang = "en";
         } catch (e) {}
     </script>
 </head>
@@ -309,9 +424,16 @@
     <main class="page">
         <header class="top rise d1">
             <div>
-                <h1>产品</h1>
-                <span class="role">本地优先的小工具</span>
+                <h1><span class="zh">产品</span><span class="en">Products</span></h1>
+                <span class="role"><span class="zh">本地优先的小工具</span><span class="en">Local-first utilities</span></span>
             </div>
+            <div class="tools">
+                <div class="langs" role="group" aria-label="语言">
+                    <button type="button" data-lang="zh-Hans" aria-pressed="true">中文</button>
+                    <span aria-hidden="true">·</span>
+                    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+                </div>
+                <span class="tool-rule" aria-hidden="true"></span>
             <button class="theme" type="button" aria-label="切换到深色">
                 <svg class="moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
@@ -321,46 +443,52 @@
                     <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
                 </svg>
             </button>
+            </div>
         </header>
 
         <div class="intro rise d2">
-            <p>三款独立应用，分别照看网络状态、Agent 额度，和个人健康记录。设置与记录留在你的设备上，没有广告，也没有跨 App 跟踪。</p>
-            <p>点进每一款，可以查看功能介绍、技术支持与隐私政策。</p>
+            <p class="zh">三款独立应用，分别照看网络状态、Agent 额度，和个人健康记录。设置与记录留在你的设备上，没有广告，也没有跨 App 跟踪。</p>
+            <p class="zh">点进每一款，可以查看功能介绍、技术支持与隐私政策。</p>
+            <p class="en">Three independent apps, for network status, agent quotas, and personal health records. Settings and history stay on your device. No ads, and no cross-app tracking.</p>
+            <p class="en">Open one for the overview, support notes, and privacy policy.</p>
         </div>
 
-        <h2 class="section-label rise d3">目录</h2>
+        <h2 class="section-label rise d3"><span class="zh">目录</span><span class="en">Index</span></h2>
         <ul class="list rise d4">
             <li class="item">
                 <a class="item-link" href="ohmytoken/">
                     <span class="copy">
                         <span class="title"><span class="name">OhMyToken</span> <span class="badge">NEW</span></span>
-                        <span class="desc">在 iPhone 与 Mac 上查看 Agent 剩余额度、重置时间和本机 Token 消耗。支持 Codex、Claude、Gemini、GitHub Copilot、Grok 与 Cursor。</span>
+                        <span class="desc zh">在 iPhone 与 Mac 上查看 Agent 剩余额度、重置时间和本机 Token 消耗。支持 Codex、Claude、Gemini、GitHub Copilot、Grok 与 Cursor。</span>
+                        <span class="desc en">Remaining agent quota, reset times, and on-device token use, on iPhone and Mac. Works with Codex, Claude, Gemini, GitHub Copilot, Grok, and Cursor.</span>
                     </span>
                     <span class="meta">iPhone · Mac</span>
                     <span class="thumb"><img src="ohmytoken/icon.png" alt=""></span>
                 </a>
                 <p class="sub">
-                    <a href="ohmytoken/">产品介绍</a><span aria-hidden="true">·</span><a href="ohmytoken/support/">技术支持</a><span aria-hidden="true">·</span><a href="ohmytoken/privacy/">隐私政策</a>
+                    <a href="ohmytoken/"><span class="zh">产品介绍</span><span class="en">Overview</span></a><span aria-hidden="true">·</span><a href="ohmytoken/support/"><span class="zh">技术支持</span><span class="en">Support</span></a><span aria-hidden="true">·</span><a href="ohmytoken/privacy/"><span class="zh">隐私政策</span><span class="en">Privacy</span></a>
                 </p>
             </li>
             <li class="item">
                 <a class="item-link" href="ohmyip/">
                     <span class="copy">
                         <span class="title"><span class="name">OhMyIp</span></span>
-                        <span class="desc">常驻 macOS 菜单栏，展示公网 IP、国家与城市，并用状态点确认当前地址是否符合预期。同时可看延迟与本机流量。</span>
+                        <span class="desc zh">常驻 macOS 菜单栏，展示公网 IP、国家与城市，并用状态点确认当前地址是否符合预期。同时可看延迟与本机流量。</span>
+                        <span class="desc en">Lives in the macOS menu bar. It shows your public IP, country, and city, and a status dot when the address matches what you expect. Latency and local traffic sit beside it.</span>
                     </span>
                     <span class="meta">macOS</span>
                     <span class="thumb"><img src="ohmyip/icon.png" alt=""></span>
                 </a>
                 <p class="sub">
-                    <a href="ohmyip/">功能介绍</a><span aria-hidden="true">·</span><a href="ohmyip/privacy/">隐私政策</a>
+                    <a href="ohmyip/"><span class="zh">功能介绍</span><span class="en">Features</span></a><span aria-hidden="true">·</span><a href="ohmyip/privacy/"><span class="zh">隐私政策</span><span class="en">Privacy</span></a>
                 </p>
             </li>
             <li class="item">
                 <a class="item-link" href="support/">
                     <span class="copy">
-                        <span class="title"><span class="name">心脉助手</span></span>
-                        <span class="desc">记录血压与心率，管理服药提醒，并在你授权后读取 Apple 健康里的趋势。仅供个人健康管理参考，不是医疗设备。</span>
+                        <span class="title"><span class="name zh">心脉助手</span><span class="name en">HeartWave</span></span>
+                        <span class="desc zh">记录血压与心率，管理服药提醒，并在你授权后读取 Apple 健康里的趋势。仅供个人健康管理参考，不是医疗设备。</span>
+                        <span class="desc en">Record blood pressure and heart rate, keep medication reminders, and read Apple Health trends once you allow it. For personal reference only. Not a medical device.</span>
                     </span>
                     <span class="meta">iPhone</span>
                     <span class="thumb mark" aria-hidden="true">
@@ -370,7 +498,7 @@
                     </span>
                 </a>
                 <p class="sub">
-                    <a href="support/">技术支持</a><span aria-hidden="true">·</span><a href="privacy-policy/">隐私政策</a><span aria-hidden="true">·</span><a href="terms-of-use/">用户协议</a>
+                    <a href="support/"><span class="zh">技术支持</span><span class="en">Support</span></a><span aria-hidden="true">·</span><a href="privacy-policy/"><span class="zh">隐私政策</span><span class="en">Privacy</span></a><span aria-hidden="true">·</span><a href="terms-of-use/"><span class="zh">用户协议</span><span class="en">Terms</span></a>
                 </p>
             </li>
         </ul>
@@ -378,18 +506,59 @@
         <footer class="foot">
             <p>© 2026</p>
             <p>OhMyToken <a href="mailto:935517644@qq.com">935517644@qq.com</a></p>
-            <p>OhMyIp / 心脉助手 <a href="mailto:heartwave_app@163.com">heartwave_app@163.com</a></p>
+            <p><span class="zh">OhMyIp / 心脉助手</span><span class="en">OhMyIp / HeartWave</span> <a href="mailto:heartwave_app@163.com">heartwave_app@163.com</a></p>
         </footer>
     </main>
     <script>
+        var root = document.documentElement;
         var button = document.querySelector(".theme");
-        function syncLabel() {
-            var dark = document.documentElement.classList.contains("dark");
-            button.setAttribute("aria-label", dark ? "切换到浅色" : "切换到深色");
+        var langButtons = document.querySelectorAll(".langs button");
+        var langGroup = document.querySelector(".langs");
+        var description = document.querySelector('meta[name="description"]');
+        var copy = {
+            "zh-Hans": {
+                title: "产品 — OhMyToken、OhMyIp、心脉助手",
+                description: "OhMyToken、OhMyIp 与心脉助手。三款本地优先的独立应用：Agent 额度、公网 IP，以及个人健康记录。",
+                toDark: "切换到深色",
+                toLight: "切换到浅色",
+                group: "语言"
+            },
+            en: {
+                title: "Products — OhMyToken, OhMyIp, HeartWave",
+                description: "OhMyToken, OhMyIp, and HeartWave. Three local-first apps for agent quotas, public IP, and personal health records.",
+                toDark: "Switch to dark",
+                toLight: "Switch to light",
+                group: "Language"
+            }
+        };
+        function currentLang() {
+            return root.lang === "en" ? "en" : "zh-Hans";
         }
-        syncLabel();
+        function syncLabel() {
+            var text = copy[currentLang()];
+            var dark = root.classList.contains("dark");
+            button.setAttribute("aria-label", dark ? text.toLight : text.toDark);
+        }
+        function applyLang(lang) {
+            var next = lang === "en" ? "en" : "zh-Hans";
+            root.lang = next;
+            document.title = copy[next].title;
+            description.setAttribute("content", copy[next].description);
+            langGroup.setAttribute("aria-label", copy[next].group);
+            langButtons.forEach(function (item) {
+                item.setAttribute("aria-pressed", item.getAttribute("data-lang") === next ? "true" : "false");
+            });
+            try { localStorage.setItem("lang", next === "en" ? "en" : "zh"); } catch (e) {}
+            syncLabel();
+        }
+        applyLang(currentLang());
+        langButtons.forEach(function (item) {
+            item.addEventListener("click", function () {
+                applyLang(item.getAttribute("data-lang"));
+            });
+        });
         button.addEventListener("click", function () {
-            var dark = document.documentElement.classList.toggle("dark");
+            var dark = root.classList.toggle("dark");
             try { localStorage.setItem("theme", dark ? "dark" : "light"); } catch (e) {}
             syncLabel();
         });
