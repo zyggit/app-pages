@@ -514,30 +514,21 @@
             pointer-events: none;
         }
 
-        .js .haze {
-            filter: blur(7px) saturate(0.75);
-            opacity: 0.82;
-        }
-
-        .clear { display: none; }
-
-        .js .clear {
-            display: block;
-            -webkit-mask-image: radial-gradient(circle var(--wand) at var(--mx) var(--my), #000 0%, #000 42%, rgba(0, 0, 0, 0.6) 64%, transparent 100%);
-            mask-image: radial-gradient(circle var(--wand) at var(--mx) var(--my), #000 0%, #000 42%, rgba(0, 0, 0, 0.6) 64%, transparent 100%);
-            transition: --wand 520ms cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        .lens {
-            position: absolute;
-            inset: 0;
-            background-color: var(--wall-bg);
-            background-image: radial-gradient(var(--wall-dot) 1px, transparent 1.2px);
-            background-size: 16px 16px;
+        .shots {
             transform: scale(var(--zoom));
             transform-origin: var(--mx) var(--my);
             transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
         }
+
+        .fog {
+            backdrop-filter: blur(8px) saturate(0.75);
+            -webkit-backdrop-filter: blur(8px) saturate(0.75);
+            background: rgba(255, 255, 255, 0.12);
+            -webkit-mask-image: radial-gradient(circle var(--wand) at var(--mx) var(--my), transparent 0 42%, #000 72%);
+            mask-image: radial-gradient(circle var(--wand) at var(--mx) var(--my), transparent 0 42%, #000 72%);
+        }
+
+        html.dark .fog { background: rgba(0, 0, 0, 0.18); }
 
         .wall { --wand: 0px; --zoom: 1; }
         .wall.is-casting { --wand: var(--wand-size); --zoom: var(--zoom-size); }
@@ -684,8 +675,7 @@
             .thumb,
             .chip,
             .chip-frame,
-            .js .clear,
-            .lens,
+            .shots,
             .glow {
                 transition: none;
             }
@@ -733,9 +723,9 @@
         </header>
 
         <div class="intro rise d2">
-            <p class="zh">三款独立应用<span class="stack" aria-hidden="true"><span class="chip" style="--spread:-6px"><span class="chip-tip">OhMyToken</span><span class="chip-frame" style="--rot:-6deg"><img src="ohmytoken/icon.png" alt=""></span></span><span class="chip" style="--spread:0px"><span class="chip-tip">OhMyIp</span><span class="chip-frame" style="--rot:5deg"><img src="ohmyip/icon.png" alt=""></span></span><span class="chip" style="--spread:6px"><span class="chip-tip">心脉助手</span><span class="chip-frame" style="--rot:-4deg"><span class="chip-mark"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17h5.5l2.2-6 3.6 12 2.4-6H28"></path></svg></span></span></span></span>，分别照看网络状态、Agent 额度，和个人健康记录。设置与记录留在你的设备上，没有广告，也没有跨 App 跟踪。</p>
+            <p class="zh">三款独立应用<span class="stack" aria-hidden="true"><span class="chip" style="--spread:-6px"><span class="chip-tip">OhMyToken</span><span class="chip-frame" style="--rot:-6deg"><img src="ohmytoken/icon.jpg" alt=""></span></span><span class="chip" style="--spread:0px"><span class="chip-tip">OhMyIp</span><span class="chip-frame" style="--rot:5deg"><img src="ohmyip/icon.jpg" alt=""></span></span><span class="chip" style="--spread:6px"><span class="chip-tip">心脉助手</span><span class="chip-frame" style="--rot:-4deg"><span class="chip-mark"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17h5.5l2.2-6 3.6 12 2.4-6H28"></path></svg></span></span></span></span>，分别照看网络状态、Agent 额度，和个人健康记录。设置与记录留在你的设备上，没有广告，也没有跨 App 跟踪。</p>
             <p class="zh">点进每一款，可以查看功能介绍、技术支持与隐私政策。</p>
-            <p class="en">Three independent apps<span class="stack" aria-hidden="true"><span class="chip" style="--spread:-6px"><span class="chip-tip">OhMyToken</span><span class="chip-frame" style="--rot:-6deg"><img src="ohmytoken/icon.png" alt=""></span></span><span class="chip" style="--spread:0px"><span class="chip-tip">OhMyIp</span><span class="chip-frame" style="--rot:5deg"><img src="ohmyip/icon.png" alt=""></span></span><span class="chip" style="--spread:6px"><span class="chip-tip">HeartWave</span><span class="chip-frame" style="--rot:-4deg"><span class="chip-mark"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17h5.5l2.2-6 3.6 12 2.4-6H28"></path></svg></span></span></span></span>, for network status, agent quotas, and personal health records. Settings and history stay on your device. No ads, and no cross-app tracking.</p>
+            <p class="en">Three independent apps<span class="stack" aria-hidden="true"><span class="chip" style="--spread:-6px"><span class="chip-tip">OhMyToken</span><span class="chip-frame" style="--rot:-6deg"><img src="ohmytoken/icon.jpg" alt=""></span></span><span class="chip" style="--spread:0px"><span class="chip-tip">OhMyIp</span><span class="chip-frame" style="--rot:5deg"><img src="ohmyip/icon.jpg" alt=""></span></span><span class="chip" style="--spread:6px"><span class="chip-tip">HeartWave</span><span class="chip-frame" style="--rot:-4deg"><span class="chip-mark"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17h5.5l2.2-6 3.6 12 2.4-6H28"></path></svg></span></span></span></span>, for network status, agent quotas, and personal health records. Settings and history stay on your device. No ads, and no cross-app tracking.</p>
             <p class="en">Open one for the overview, support notes, and privacy policy.</p>
         </div>
 
@@ -749,7 +739,7 @@
                         <span class="desc en">Remaining agent quota, reset times, and on-device token use, on iPhone and Mac. Works with Codex, Claude, Gemini, GitHub Copilot, Grok, and Cursor.</span>
                     </span>
                     <span class="meta">iPhone · Mac</span>
-                    <span class="thumb"><img src="ohmytoken/icon.png" alt=""></span>
+                    <span class="thumb"><img src="ohmytoken/icon.jpg" alt=""></span>
                 </a>
                 <p class="sub">
                     <a href="ohmytoken/"><span class="zh">产品介绍</span><span class="en">Overview</span></a><span aria-hidden="true">·</span><a href="ohmytoken/support/"><span class="zh">技术支持</span><span class="en">Support</span></a><span aria-hidden="true">·</span><a href="ohmytoken/privacy/"><span class="zh">隐私政策</span><span class="en">Privacy</span></a>
@@ -763,7 +753,7 @@
                         <a class="desc en" href="ohmyip/">Lives in the Mac menu bar. It shows your public IP, country, and city, and a status dot when the address matches what you expect. Latency and local traffic sit beside it.</a>
                     </span>
                     <span class="meta">Mac</span>
-                    <a class="thumb" href="https://apps.apple.com/app/ohmyip/id6809123174?mt=12"><img src="ohmyip/icon.png" alt=""><span class="zh sr">在 Mac App Store 下载 OhMyIp</span><span class="en sr">Download OhMyIp on the Mac App Store</span></a>
+                    <a class="thumb" href="https://apps.apple.com/app/ohmyip/id6809123174?mt=12"><img src="ohmyip/icon.jpg" alt=""><span class="zh sr">在 Mac App Store 下载 OhMyIp</span><span class="en sr">Download OhMyIp on the Mac App Store</span></a>
                 </div>
                 <p class="sub">
                     <a href="ohmyip/"><span class="zh">功能介绍</span><span class="en">Features</span></a><span aria-hidden="true">·</span><a href="ohmyip/privacy/"><span class="zh">隐私政策</span><span class="en">Privacy</span></a>
@@ -795,7 +785,7 @@
                 <p class="wall-hint"><span class="zh">挥动魔杖，驱散迷雾 ✦</span><span class="en">Wave the wand to lift the haze ✦</span></p>
             </div>
             <div class="wall">
-                <div class="layer haze">
+                <div class="layer shots">
                     <figure class="shot" style="--x:2.5%;--y:6%;--w:25%;--r:-5deg;--mx-pos:3%;--my-pos:3%;--mw:47%"><img src="gallery/ohmyip-menu.jpg" alt="OhMyIp 菜单栏窗口：国家、城市、公网 IP 与延迟" width="1100" height="687" loading="lazy" decoding="async"></figure>
                     <figure class="shot" style="--x:4%;--y:52%;--w:23%;--r:3deg;--mx-pos:4%;--my-pos:27%;--mw:46%"><img src="gallery/ohmytoken-usage.jpg" alt="OhMyToken Mac 版本机 Token 消耗统计" width="1100" height="741" loading="lazy" decoding="async"></figure>
                     <figure class="shot tall" style="--x:26%;--y:5%;--w:11.5%;--r:4deg;--mx-pos:53%;--my-pos:2%;--mw:21%"><img src="gallery/ohmytoken-popover.jpg" alt="OhMyToken 菜单栏额度总览" width="481" height="900" loading="lazy" decoding="async"></figure>
@@ -807,7 +797,7 @@
                     <figure class="shot wide-only" style="--x:55%;--y:34%;--w:18%;--r:-6deg"><img src="gallery/ohmyip-monitor.jpg" alt="OhMyIp 预期 IP 监控" width="1100" height="687" loading="lazy" decoding="async"></figure>
                     <figure class="shot wide-only" style="--x:70%;--y:50%;--w:24%;--r:4deg"><img src="gallery/ohmytoken-breakdown.jpg" alt="OhMyToken Token 类型构成" width="1100" height="741" loading="lazy" decoding="async"></figure>
                 </div>
-                <div class="layer clear" aria-hidden="true"></div>
+                <div class="layer fog" aria-hidden="true"></div>
                 <div class="layer glow" aria-hidden="true"></div>
                 <div class="layer sparks" aria-hidden="true"></div>
             </div>
@@ -875,16 +865,8 @@
 
         (function () {
             var wall = document.querySelector(".wall");
-            var haze = wall.querySelector(".haze");
-            var clear = wall.querySelector(".clear");
             var sparks = wall.querySelector(".sparks");
             var calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-            clear.innerHTML = '<div class="lens">' + haze.innerHTML + "</div>";
-            clear.querySelectorAll("img").forEach(function (img) {
-                img.alt = "";
-                img.removeAttribute("loading");
-            });
 
             var target = { x: 0, y: 0 };
             var pos = { x: 0, y: 0 };
