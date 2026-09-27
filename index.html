@@ -211,6 +211,8 @@
         .theme:focus-visible,
         .langs button:focus-visible,
         .item-link:focus-visible,
+        .name:focus-visible,
+        .thumb:focus-visible,
         .sub a:focus-visible,
         .intro a:focus-visible,
         .foot a:focus-visible {
@@ -314,10 +316,27 @@
             letter-spacing: -0.011em;
         }
 
-        .item-link:hover .name {
+        .name {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .item-link:hover .name,
+        .name:hover {
             text-decoration: underline;
             text-decoration-color: var(--underline);
             text-underline-offset: 3px;
+        }
+
+        .sr {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
 
         .badge {
@@ -340,6 +359,7 @@
             max-width: 36rem;
             color: var(--muted);
             font-size: 15px;
+            text-decoration: none;
         }
 
         .meta {
@@ -736,15 +756,15 @@
                 </p>
             </li>
             <li class="item">
-                <a class="item-link" href="ohmyip/">
+                <div class="item-link">
                     <span class="copy">
-                        <span class="title"><span class="name">OhMyIp</span></span>
-                        <span class="desc zh">常驻 macOS 菜单栏，展示公网 IP、国家与城市，并用状态点确认当前地址是否符合预期。同时可看延迟与本机流量。</span>
-                        <span class="desc en">Lives in the macOS menu bar. It shows your public IP, country, and city, and a status dot when the address matches what you expect. Latency and local traffic sit beside it.</span>
+                        <span class="title"><a class="name" href="https://apps.apple.com/app/ohmyip/id6809123174?mt=12">OhMyIp<span class="zh sr">，Mac App Store</span><span class="en sr">, Mac App Store</span></a></span>
+                        <a class="desc zh" href="ohmyip/">常驻 Mac 菜单栏，展示公网 IP、国家与城市，并用状态点确认当前地址是否符合预期。同时可看延迟与本机流量。</a>
+                        <a class="desc en" href="ohmyip/">Lives in the Mac menu bar. It shows your public IP, country, and city, and a status dot when the address matches what you expect. Latency and local traffic sit beside it.</a>
                     </span>
-                    <span class="meta">macOS</span>
-                    <span class="thumb"><img src="ohmyip/icon.png" alt=""></span>
-                </a>
+                    <span class="meta">Mac</span>
+                    <a class="thumb" href="https://apps.apple.com/app/ohmyip/id6809123174?mt=12"><img src="ohmyip/icon.png" alt=""><span class="zh sr">在 Mac App Store 下载 OhMyIp</span><span class="en sr">Download OhMyIp on the Mac App Store</span></a>
+                </div>
                 <p class="sub">
                     <a href="ohmyip/"><span class="zh">功能介绍</span><span class="en">Features</span></a><span aria-hidden="true">·</span><a href="ohmyip/privacy/"><span class="zh">隐私政策</span><span class="en">Privacy</span></a>
                 </p>
