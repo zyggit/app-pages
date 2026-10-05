@@ -194,22 +194,24 @@ button:focus-visible {
 
 h1 {
     margin: 0;
-    font-size: 1.7rem;
+    font-size: 17px;
     font-weight: 560;
-    letter-spacing: -0.03em;
-    line-height: 1.2;
+    letter-spacing: -0.01em;
+    line-height: 1.35;
 }
 
 .role {
     margin: 0.15rem 0 0;
     color: var(--muted);
-    font-size: 0.95rem;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.35;
 }
 
 .lede {
     max-width: 38rem;
     margin: 1.35rem 0 0;
-    font-size: 1.05rem;
+    font-size: 16px;
 }
 
 .actions { margin: 1rem 0 0; }
@@ -236,7 +238,7 @@ h1 {
     padding-left: 0.85rem;
     border-left: 2px solid var(--mark-fg);
     color: var(--muted);
-    font-size: 0.94rem;
+    font-size: 16px;
 }
 
 .phones {
@@ -265,12 +267,12 @@ h1 {
 .phones figcaption {
     margin-top: 0.65rem;
     color: var(--muted);
-    font-size: 0.92rem;
+    font-size: 16px;
 }
 
 h2 {
     margin: 3rem 0 0;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 560;
 }
 
