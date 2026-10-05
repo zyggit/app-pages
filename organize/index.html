@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#141414" media="(prefers-color-scheme: dark)">
     <title>organize — 先预览，再整理文件</title>
     <link rel="icon" href="icon.jpg">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20261005-download2">
     <script>
         try {
             var params = new URLSearchParams(location.search);
@@ -56,11 +56,12 @@
             </div>
             <p class="lede"><span class="zh">选择文件夹后扫描。确认之前不会改动任何文件。处理全程在这台电脑上。</span><span class="en">Choose a folder, then scan. Nothing changes until you confirm. Files stay on this computer.</span></p>
             <div class="actions">
-                <a class="download" id="app-download" href="https://github.com/zyggit/organize/releases" aria-describedby="download-note download-status"><span class="zh">获取 Mac 安装包</span><span class="en">Get the Mac app</span><span aria-hidden="true">↓</span></a>
+                <a class="download" id="app-download" role="link" aria-disabled="true" tabindex="-1" data-state="unavailable" aria-describedby="download-note download-status"><span class="zh">安装包暂不可用</span><span class="en">Installer unavailable</span><svg class="download-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4"></path></svg></a>
                 <a href="https://github.com/zyggit/organize"><span class="zh">在 GitHub 查看源码</span><span class="en">Source on GitHub</span></a>
+                <a href="https://github.com/zyggit/organize/releases"><span class="zh">发布记录</span><span class="en">Releases</span></a>
             </div>
             <p class="download-note" id="download-note"><span class="zh">macOS 14+ · Apple Silicon（M 系列）· 早期体验版。尚未经过 Apple 公证，系统可能阻止打开；请勿关闭系统安全保护。</span><span class="en">macOS 14+ · Apple Silicon (M-series) · Early access. Not Apple notarized; macOS may block opening. Do not disable system security protections.</span></p>
-            <p class="download-status" id="download-status" aria-live="polite"><span class="zh">安装包和校验文件由 GitHub Releases 提供。</span><span class="en">Installers and checksums are hosted on GitHub Releases.</span></p>
+            <p class="download-status" id="download-status" aria-live="polite"><span class="zh">正在查询安装包；也可通过发布记录确认是否已有 DMG 附件。</span><span class="en">Checking for an installer. You can also check Releases for a DMG attachment.</span></p>
             <ol class="flow">
                 <li><span class="zh">选择方案</span><span class="en">Choose a plan</span></li>
                 <li><span class="zh">设置文件夹</span><span class="en">Set folders</span></li>
@@ -123,7 +124,7 @@
             <a href="https://github.com/zyggit/organize"><span class="zh">源码</span><span class="en">Source</span></a><span aria-hidden="true">·</span><span>MIT</span>
         </p>
     </main>
-    <script src="download.js" defer></script>
+    <script src="download.js?v=20261005-download2" defer></script>
     <script>
         var root = document.documentElement;
         var button = document.querySelector(".theme");

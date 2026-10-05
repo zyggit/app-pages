@@ -2,9 +2,11 @@
 
 The download entry checks the public `zyggit/organize` latest GitHub release and
 enables the stable `Organize-macos-arm64.dmg` download link only when the matching
-uploaded asset is available. Missing releases, network failures and GitHub API
-rate limits keep a usable link to the releases page. Without JavaScript, that
-fallback also works. The page does not require a token or private credentials.
+uploaded asset is available. Missing releases or source-only releases disable the
+download entry and explicitly say the installer has not been published. Network
+failures and GitHub API rate limits offer a clearly labelled "View GitHub Releases"
+link instead of claiming it downloads an app. The separate Releases link also
+works without JavaScript. The page requires no token or private credentials.
 
 The current desktop build supports macOS 14+ / Apple Silicon and is ad-hoc signed,
 not Apple notarized. Keep this warning visible until the CI signing and
@@ -27,5 +29,13 @@ python3 -m http.server 8765 --bind 127.0.0.1
 ```
 
 Open `http://127.0.0.1:8765/organize/`, check Chinese/English, light/dark themes
-and narrow screens. Before the first release it should show the release-page
-fallback, not a broken DMG link.
+and narrow screens. Before the first installer release it should show a disabled
+download entry, not an empty release page presented as an installer download.
+
+An empty Release is not a successful package build: GitHub's automatically
+generated source ZIP/tar.gz files do not install the desktop app. The application
+repository must contain the desktop workflow and its required scripts, and
+GitHub Actions must be enabled there (check fork-repository settings). The
+workflow builds on macOS, uploads an Actions artifact, and then explicitly
+uploads the DMG to Release assets; an Actions artifact alone is not a public
+Release download.

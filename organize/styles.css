@@ -226,21 +226,35 @@ h1 {
     margin: 1rem 0 0;
 }
 
-.actions .download {
+.actions a.download {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
     min-height: 44px;
-    padding: 0.55rem 1rem;
+    padding: 0.7rem 1rem;
     border: 1px solid var(--fg);
     border-radius: 8px;
     background: var(--fg);
     color: var(--bg);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.25;
     text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 150ms, color 150ms, border-color 150ms;
 }
 
-.actions .download:hover { opacity: 0.85; }
+.actions a.download:visited { color: var(--bg); }
+.actions a.download:hover { opacity: 0.85; text-decoration: none; }
+.actions a.download[aria-disabled="true"] {
+    background: var(--hover);
+    border-color: var(--underline);
+    color: var(--muted);
+    cursor: not-allowed;
+    opacity: 1;
+}
+.download-icon { display: block; flex: none; }
 
 .download-note,
 .download-status {

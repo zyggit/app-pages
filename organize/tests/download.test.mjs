@@ -8,12 +8,16 @@ const base = 'https://github.com/zyggit/organize/releases';
 
 function element() {
     const labels = { '.zh': { textContent: '' }, '.en': { textContent: '' } };
-    return { labels, children: [], querySelector: key => labels[key],
+    return { labels, attributes: {}, children: [], querySelector: key => labels[key],
+        setAttribute(name, value) { this.attributes[name] = value; },
+        removeAttribute(name) { delete this.attributes[name]; if (name === 'href') delete this.href; },
         appendChild(child) { this.children.push(child); } };
 }
 
 async function render(response, options = {}) {
-    const button = Object.assign(element(), { href: base });
+    const button = element();
+    button.setAttribute('aria-disabled', 'true');
+    button.setAttribute('tabindex', '-1');
     const status = element();
     vm.runInNewContext(source, {
         document: {
@@ -36,20 +40,27 @@ test('complete release enables stable DMG and checksum URLs', async () => {
     assert.equal(button.href, base + '/latest/download/Organize-macos-arm64.dmg');
     assert.equal(button.labels['.zh'].textContent, '下载 Mac 安装包');
     assert.equal(button.labels['.en'].textContent, 'Download for Mac');
+    assert.equal(button.attributes['aria-disabled'], undefined);
+    assert.equal(button.attributes.tabindex, undefined);
+    assert.equal(button.attributes['data-state'], 'ready');
     assert.match(status.labels['.zh'].textContent, /2.0 MB/);
     assert.equal(status.children[0].href, base + '/latest/download/SHA256SUMS.txt');
 });
 
-test('no first release falls back to release page', async () => {
+test('no first release disables download instead of linking to an empty release page', async () => {
     const { button, status } = await render({ ok: false, status: 404 });
-    assert.equal(button.href, base);
-    assert.match(status.labels['.zh'].textContent, /首个安装包/);
+    assert.equal(button.href, undefined);
+    assert.equal(button.attributes['aria-disabled'], 'true');
+    assert.equal(button.labels['.zh'].textContent, '安装包尚未发布');
+    assert.match(status.labels['.zh'].textContent, /源码压缩包/);
 });
 
 test('network failure and rate limits retain usable fallback', async () => {
     for (const [response, options] of [[null, { error: true }], [{ ok: false, status: 403 }, {}]]) {
         const { button, status } = await render(response, options);
         assert.equal(button.href, base);
+        assert.equal(button.labels['.zh'].textContent, '查看 GitHub 发布页');
+        assert.equal(button.attributes['aria-disabled'], undefined);
         assert.match(status.labels['.en'].textContent, /Cannot check/);
     }
 });
@@ -62,10 +73,20 @@ test('draft, prerelease, incomplete, wrong architecture or unsafe host cannot en
         { assets: [{ ...dmg, browser_download_url: 'https://example.com/file.dmg' }] },
         { assets: null }, { assets: [] },
     ]) {
-        assert.equal((await render(ok(release))).button.href, base);
+        const { button } = await render(ok(release));
+        assert.equal(button.href, undefined);
+        assert.equal(button.attributes['aria-disabled'], 'true');
     }
 });
 
-test('no JavaScript fetch support leaves original release-page link', async () => {
-    assert.equal((await render(null, { noFetch: true })).button.href, base);
+test('no fetch support does not claim a downloadable installer exists', async () => {
+    const { button } = await render(null, { noFetch: true });
+    assert.equal(button.href, undefined);
+    assert.equal(button.attributes['aria-disabled'], 'true');
+});
+
+test('a manually created source-only release is not a Mac installer', async () => {
+    const { button } = await render(ok({ tag_name: '1.0.0', assets: [], zipball_url: base + '/source.zip' }));
+    assert.equal(button.href, undefined);
+    assert.equal(button.labels['.zh'].textContent, '安装包尚未发布');
 });
