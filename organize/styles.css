@@ -1,0 +1,350 @@
+:root {
+    --bg: #ffffff;
+    --fg: #202020;
+    --muted: #5e5e5e;
+    --faint: #8a8a8a;
+    --line: #ececec;
+    --underline: #d4d4d4;
+    --hover: #f7f7f7;
+    --thumb-border: #e8e8e8;
+    color-scheme: light;
+}
+
+html.dark {
+    --bg: #141414;
+    --fg: #f3f3f3;
+    --muted: #b0b0b0;
+    --faint: #8d8d8d;
+    --line: #2a2a2a;
+    --underline: #4a4a4a;
+    --hover: #1d1d1d;
+    --thumb-border: #333333;
+    color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+@font-face {
+    font-family: "Geist";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../fonts/geist-sans-400.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Geist";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("../fonts/geist-sans-500.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Geist";
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("../fonts/geist-sans-600.woff2") format("woff2");
+}
+
+html { background: var(--bg); }
+
+html:not([lang="en"]) .en { display: none; }
+html[lang="en"] .zh { display: none; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+}
+
+a { color: inherit; }
+
+.page {
+    width: min(68rem, 100%);
+    margin: 0 auto;
+    padding: 2.75rem 1.5rem 4.5rem;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 1rem;
+    min-width: 0;
+}
+
+.back {
+    color: var(--fg);
+    font-size: 17px;
+    font-weight: 560;
+    text-decoration: underline;
+    text-decoration-color: var(--underline);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.back:hover { text-decoration-color: var(--fg); }
+
+.tools {
+    display: flex;
+    align-items: center;
+    flex: none;
+    gap: 0.55rem;
+}
+
+.langs {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.28rem;
+    color: #8a8a8a;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    line-height: 1;
+    text-transform: uppercase;
+    user-select: none;
+}
+
+html.dark .langs { color: var(--faint); }
+
+.langs button {
+    position: relative;
+    margin: 0;
+    padding: 0 0 2px;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    cursor: pointer;
+}
+
+.langs button[data-lang="zh-Hans"] { letter-spacing: 0.02em; }
+
+.langs button:hover,
+.langs button[aria-pressed="true"] { color: var(--fg); }
+
+.langs button[aria-pressed="true"]::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    background: currentColor;
+}
+
+.tool-rule {
+    width: 1px;
+    height: 16px;
+    background: var(--line);
+}
+
+.theme {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--faint);
+    cursor: pointer;
+}
+
+.theme:hover { color: var(--fg); }
+
+.sun { display: none; }
+html.dark .moon { display: none; }
+html.dark .sun { display: block; }
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--fg);
+    outline-offset: 3px;
+}
+
+.lead {
+    max-width: min(40rem, 100%);
+    min-width: 0;
+}
+
+.identity {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-top: 2.4rem;
+    min-width: 0;
+}
+
+.identity > div { min-width: 0; }
+
+.identity img {
+    width: 64px;
+    height: 64px;
+    border: 1px solid var(--thumb-border);
+    border-radius: 16px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.7rem;
+    font-weight: 560;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+}
+
+.role {
+    margin: 0.15rem 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.lede {
+    margin: 1.35rem 0 0;
+    font-size: 1.05rem;
+}
+
+.actions { margin: 1rem 0 0; }
+
+.actions a,
+.end a {
+    color: var(--fg);
+    font-weight: 540;
+    text-decoration: underline;
+    text-decoration-color: var(--underline);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.actions a:hover,
+.end a:hover,
+.back:hover { text-decoration-color: var(--fg); }
+
+.flow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 100%;
+    margin: 1.35rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.flow li { display: inline-flex; align-items: center; }
+
+.flow li:not(:last-child)::after {
+    content: "→";
+    margin: 0 0.55rem;
+    color: var(--faint);
+}
+
+.windows {
+    display: grid;
+    gap: 2.4rem;
+    margin: 2.6rem 0 0;
+    min-width: 0;
+}
+
+.window {
+    min-width: 0;
+    margin: 0;
+}
+
+.window img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #0c1220;
+}
+
+.window figcaption {
+    max-width: 40rem;
+    margin-top: 0.7rem;
+    color: var(--muted);
+}
+
+.window figcaption strong {
+    display: block;
+    margin-bottom: 0.15rem;
+    color: var(--fg);
+    font-weight: 560;
+}
+
+.cli {
+    max-width: 40rem;
+    margin-top: 3rem;
+}
+
+.cli h2 {
+    margin: 0 0 0.7rem;
+    font-size: 15px;
+    font-weight: 560;
+}
+
+.cli p { margin: 0; color: var(--muted); }
+
+.cli p code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.92em;
+}
+
+.cli pre {
+    margin: 0.9rem 0 0;
+    padding: 0.9rem 1rem;
+    max-width: 100%;
+    overflow: auto;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--hover);
+    color: var(--fg);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.cli pre + p { margin-top: 0.85rem; }
+
+.end {
+    margin: 2.4rem 0 0;
+    color: var(--faint);
+    font-size: 14px;
+}
+
+.end span[aria-hidden="true"] { margin: 0 0.35rem; }
+
+html[lang="en"] body {
+    font-family: "Geist", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif;
+    font-weight: 400;
+    font-synthesis: none;
+    letter-spacing: -0.011em;
+}
+
+html[lang="en"] h1,
+html[lang="en"] .back,
+html[lang="en"] h2,
+html[lang="en"] .window figcaption strong,
+html[lang="en"] .actions a,
+html[lang="en"] .end a {
+    font-weight: 500;
+}
+
+@media (max-width: 640px) {
+    .page {
+        padding: 2.25rem 1rem 4rem;
+    }
+}

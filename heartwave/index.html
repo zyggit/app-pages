@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="心脉助手记录血压、脉搏和服药，并在你授权后查看 Apple 健康里的趋势。数据留在 iPhone 上。">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141414" media="(prefers-color-scheme: dark)">
+    <title>心脉助手 — 血压、用药与健康趋势</title>
+    <link rel="icon" href="icon.jpg">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        try {
+            var params = new URLSearchParams(location.search);
+            var q = params.get("lang");
+            if (q === "en" || q === "zh") localStorage.setItem("lang", q);
+            var themeQuery = params.get("theme");
+            if (themeQuery === "dark" || themeQuery === "light") localStorage.setItem("theme", themeQuery);
+            var savedTheme = localStorage.getItem("theme");
+            var dark = savedTheme === "dark" || (!savedTheme && matchMedia("(prefers-color-scheme: dark)").matches);
+            if (dark) document.documentElement.classList.add("dark");
+            if (localStorage.getItem("lang") === "en") document.documentElement.lang = "en";
+        } catch (e) {}
+    </script>
+</head>
+<body>
+    <main class="page">
+        <header class="top">
+            <a class="back" href="../"><span class="zh">产品</span><span class="en">Products</span></a>
+            <div class="tools">
+                <div class="langs" role="group" aria-label="语言">
+                    <button type="button" data-lang="zh-Hans" aria-pressed="true">中文</button>
+                    <span aria-hidden="true">·</span>
+                    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+                </div>
+                <span class="tool-rule" aria-hidden="true"></span>
+                <button class="theme" type="button" aria-label="切换到深色">
+                    <svg class="moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <div class="identity">
+            <img src="icon.jpg" alt="" width="64" height="64">
+            <div>
+                <h1><span class="zh">心脉助手</span><span class="en">HeartWave</span></h1>
+                <p class="role">iPhone · iOS 17+</p>
+            </div>
+        </div>
+
+        <p class="lede"><span class="zh">记录血压、脉搏和服药，并把近期变化留在这台 iPhone 上。</span><span class="en">Record blood pressure, pulse, and medication, and keep the recent changes on this iPhone.</span></p>
+        <p class="actions"><a href="https://apps.apple.com/cn/app/%E5%BF%83%E8%84%89%E5%8A%A9%E6%89%8B/id6772485768"><span class="zh">在 App Store 下载</span><span class="en">Download on the App Store</span></a></p>
+        <p class="limit"><span class="zh">仅供个人健康管理参考，不是医疗设备。趋势、评分和报告不提供诊断、治疗或用药调整建议。</span><span class="en">For personal reference only. HeartWave is not a medical device. Trends, scores, and reports do not diagnose, treat, or suggest medication changes.</span></p>
+
+        <div class="phones">
+            <figure>
+                <img src="../gallery/heartwave-meds.jpg" width="413" height="900" alt="心脉助手用药页，显示今日服药进度、本周记录和月度依从性" data-alt-zh="心脉助手用药页，显示今日服药进度、本周记录和月度依从性" data-alt-en="HeartWave medications screen, with today’s doses, this week, and monthly adherence">
+                <figcaption><span class="zh">用药页记下今天是否已服、本周完成情况和月度依从性。</span><span class="en">The medications screen shows today’s doses, this week, and monthly adherence.</span></figcaption>
+            </figure>
+            <figure>
+                <img src="../gallery/heartwave-trends.jpg" width="413" height="900" alt="心脉助手趋势页，列出血压、心率和来自 Apple 健康的其他信号" data-alt-zh="心脉助手趋势页，列出血压、心率和来自 Apple 健康的其他信号" data-alt-en="HeartWave trends for blood pressure, heart rate, and other Apple Health signals">
+                <figcaption><span class="zh">趋势页把血压、心率，以及你授权读取的 Apple 健康信号放在一起。</span><span class="en">Trends keep blood pressure, heart rate, and the Apple Health signals you allow in one place.</span></figcaption>
+            </figure>
+        </div>
+
+        <h2><span class="zh">录入、提醒与导出</span><span class="en">Entry, reminders, and export</span></h2>
+        <dl class="facts">
+            <div>
+                <dt><span class="zh">录入</span><span class="en">Entry</span></dt>
+                <dd><span class="zh">血压和脉搏可以手动输入，也可以拍照识别血压计上的数字，或用语音说出读数。</span><span class="en">Enter blood pressure and pulse by hand, from a photo of the monitor, or by speaking the reading.</span></dd>
+            </div>
+            <div>
+                <dt><span class="zh">提醒</span><span class="en">Reminders</span></dt>
+                <dd><span class="zh">按处方记下药名、规格、频次和提醒时间。通知、小组件和实时活动默认不显示药名和剂量，可以在提醒设置里打开。</span><span class="en">Plans store the name, strength, schedule, and reminder time. Notifications, widgets, and Live Activities hide the name and dose until you turn that on.</span></dd>
+            </div>
+            <div>
+                <dt><span class="zh">Apple 健康</span><span class="en">Apple Health</span></dt>
+                <dd><span class="zh">授权后可以读取血压、心率、睡眠和活动。写回 Apple 健康默认关闭，只有你单独打开后才会请求。</span><span class="en">After you allow it, HeartWave can read blood pressure, heart rate, sleep, and activity. Writing back to Apple Health stays off until you enable it.</span></dd>
+            </div>
+            <div>
+                <dt><span class="zh">档案</span><span class="en">Profiles</span></dt>
+                <dd><span class="zh">可以为不同的家庭成员建立各自的档案，记录分开保存。</span><span class="en">Each family member can have a separate profile, with records kept apart.</span></dd>
+            </div>
+            <div>
+                <dt><span class="zh">导出</span><span class="en">Export</span></dt>
+                <dd><span class="zh">可以导出 CSV 或 PDF，用来整理自己的记录，并在就医时沟通。</span><span class="en">Export a CSV or PDF when you want a copy of your records for a clinic visit.</span></dd>
+            </div>
+            <div>
+                <dt><span class="zh">本机</span><span class="en">On device</span></dt>
+                <dd><span class="zh">健康记录保存在这台 iPhone 上，不会上传到我们的服务器。应用不接入广告或统计跟踪。</span><span class="en">Health records stay on this iPhone and are not uploaded to our servers. The app has no ads or analytics tracking.</span></dd>
+            </div>
+        </dl>
+
+        <p class="end">
+            <a href="../support/"><span class="zh">技术支持</span><span class="en">Support</span></a><span aria-hidden="true">·</span><a href="../privacy-policy/"><span class="zh">隐私政策</span><span class="en">Privacy</span></a><span aria-hidden="true">·</span><a href="../terms-of-use/"><span class="zh">用户协议</span><span class="en">Terms</span></a>
+        </p>
+        <p class="mail"><a href="mailto:heartwave_app@163.com">heartwave_app@163.com</a></p>
+    </main>
+    <script>
+        var root = document.documentElement;
+        var button = document.querySelector(".theme");
+        var langButtons = document.querySelectorAll(".langs button");
+        var langGroup = document.querySelector(".langs");
+        var description = document.querySelector('meta[name="description"]');
+        var images = document.querySelectorAll("img[data-alt-zh]");
+        var copy = {
+            "zh-Hans": {
+                title: "心脉助手 — 血压、用药与健康趋势",
+                description: "心脉助手记录血压、脉搏和服药，并在你授权后查看 Apple 健康里的趋势。数据留在 iPhone 上。",
+                toDark: "切换到深色",
+                toLight: "切换到浅色",
+                group: "语言"
+            },
+            en: {
+                title: "HeartWave — Blood pressure, medication, and trends",
+                description: "HeartWave records blood pressure, pulse, and medication, and shows Apple Health trends you allow. Data stays on your iPhone.",
+                toDark: "Switch to dark",
+                toLight: "Switch to light",
+                group: "Language"
+            }
+        };
+        function currentLang() {
+            return root.lang === "en" ? "en" : "zh-Hans";
+        }
+        function syncLabel() {
+            var text = copy[currentLang()];
+            button.setAttribute("aria-label", root.classList.contains("dark") ? text.toLight : text.toDark);
+        }
+        function applyLang(lang) {
+            var next = lang === "en" ? "en" : "zh-Hans";
+            root.lang = next;
+            document.title = copy[next].title;
+            description.setAttribute("content", copy[next].description);
+            langGroup.setAttribute("aria-label", copy[next].group);
+            langButtons.forEach(function (item) {
+                item.setAttribute("aria-pressed", item.getAttribute("data-lang") === next ? "true" : "false");
+            });
+            images.forEach(function (img) {
+                img.alt = next === "en" ? img.getAttribute("data-alt-en") : img.getAttribute("data-alt-zh");
+            });
+            try { localStorage.setItem("lang", next === "en" ? "en" : "zh"); } catch (e) {}
+            syncLabel();
+        }
+        applyLang(currentLang());
+        langButtons.forEach(function (item) {
+            item.addEventListener("click", function () {
+                applyLang(item.getAttribute("data-lang"));
+            });
+        });
+        button.addEventListener("click", function () {
+            var dark = root.classList.toggle("dark");
+            try { localStorage.setItem("theme", dark ? "dark" : "light"); } catch (e) {}
+            syncLabel();
+        });
+    </script>
+</body>
+</html>

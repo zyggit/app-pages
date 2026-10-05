@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="organize 用规则整理文件。桌面应用先给出预览，确认后才移动；命令行支持 Mac、Windows 与 Linux。">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141414" media="(prefers-color-scheme: dark)">
+    <title>organize — 先预览，再整理文件</title>
+    <link rel="icon" href="icon.jpg">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        try {
+            var params = new URLSearchParams(location.search);
+            var q = params.get("lang");
+            if (q === "en" || q === "zh") localStorage.setItem("lang", q);
+            var themeQuery = params.get("theme");
+            if (themeQuery === "dark" || themeQuery === "light") localStorage.setItem("theme", themeQuery);
+            var savedTheme = localStorage.getItem("theme");
+            var dark = savedTheme === "dark" || (!savedTheme && matchMedia("(prefers-color-scheme: dark)").matches);
+            if (dark) document.documentElement.classList.add("dark");
+            if (localStorage.getItem("lang") === "en") document.documentElement.lang = "en";
+        } catch (e) {}
+    </script>
+</head>
+<body>
+    <main class="page">
+        <header class="top">
+            <a class="back" href="../"><span class="zh">产品</span><span class="en">Products</span></a>
+            <div class="tools">
+                <div class="langs" role="group" aria-label="语言">
+                    <button type="button" data-lang="zh-Hans" aria-pressed="true">中文</button>
+                    <span aria-hidden="true">·</span>
+                    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+                </div>
+                <span class="tool-rule" aria-hidden="true"></span>
+                <button class="theme" type="button" aria-label="切换到深色">
+                    <svg class="moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <div class="lead">
+            <div class="identity">
+                <img src="icon.jpg" alt="" width="64" height="64">
+                <div>
+                    <h1>organize</h1>
+                    <p class="role"><span class="zh">开源 · Mac 桌面应用 · 命令行支持 Mac、Windows、Linux</span><span class="en">Open source · Mac app · command line for Mac, Windows, and Linux</span></p>
+                </div>
+            </div>
+            <p class="lede"><span class="zh">先列出每个文件要去哪里。你确认之后，应用才移动它们。文件在这台电脑上处理。</span><span class="en">It lists where every file will go. Nothing moves until you confirm. Files are handled on this computer.</span></p>
+            <p class="actions"><a href="https://github.com/zyggit/organize"><span class="zh">在 GitHub 查看源码</span><span class="en">Source on GitHub</span></a></p>
+            <ol class="flow">
+                <li><span class="zh">选方案</span><span class="en">Choose a plan</span></li>
+                <li><span class="zh">扫描</span><span class="en">Scan</span></li>
+                <li><span class="zh">预览</span><span class="en">Preview</span></li>
+                <li><span class="zh">整理</span><span class="en">Organize</span></li>
+            </ol>
+        </div>
+
+        <div class="windows">
+            <figure class="window">
+                <img src="shots/home.jpg" width="2000" height="1281" alt="organize 首页，四个整理方案：按类型、按日期、旧安装包和重复文件" data-alt-zh="organize 首页，四个整理方案：按类型、按日期、旧安装包和重复文件" data-alt-en="organize home, with plans for file type, date, old installers, and duplicates">
+                <figcaption>
+                    <strong><span class="zh">四个方案</span><span class="en">Four plans</span></strong>
+                    <span class="zh">按类型整理下载文件夹，照片按日期归档，旧安装包进入隔离区，或找出内容相同的重复文件。</span>
+                    <span class="en">Sort Downloads by type, file photos by date, move old installers into quarantine, or find files with the same content.</span>
+                </figcaption>
+            </figure>
+            <figure class="window">
+                <img src="shots/preview.jpg" width="2000" height="1281" alt="organize 预览页，列出将移动、改名、进入隔离区或跳过的文件" data-alt-zh="organize 预览页，列出将移动、改名、进入隔离区或跳过的文件" data-alt-en="organize preview, listing files that will move, be renamed, enter quarantine, or be skipped" loading="lazy">
+                <figcaption>
+                    <strong><span class="zh">确认前的预览</span><span class="en">Preview before anything changes</span></strong>
+                    <span class="zh">列表写明哪些文件会移动、因重名而改名、进入隔离区或被跳过。重名文件会改名留下，已有文件保持原样。</span>
+                    <span class="en">The list shows what will move, what gets a new name because of a clash, what enters quarantine, and what is skipped. A clash renames the incoming file and leaves the existing one as it is.</span>
+                </figcaption>
+            </figure>
+            <figure class="window">
+                <img src="shots/quarantine.jpg" width="2000" height="1281" alt="organize 隔离区，旧安装包和重复文件可以恢复或移入回收站" data-alt-zh="organize 隔离区，旧安装包和重复文件可以恢复或移入回收站" data-alt-en="organize quarantine, where old installers and duplicate files can be restored or moved to the trash" loading="lazy">
+                <figcaption>
+                    <strong><span class="zh">隔离区可以收回</span><span class="en">Quarantine can be undone</span></strong>
+                    <span class="zh">旧安装包和未保留的重复文件先放在这里，可以回到原位置。确认不需要之后，再移入系统回收站。应用不会自行清掉它们。整理记录可以撤销，撤销前还会再预览一次。</span>
+                    <span class="en">Old installers and duplicate copies you did not keep wait here, and can go back. After you decide they are unwanted, they move to the system trash. The app does not clear them on its own. A finished run can be undone, with another preview first.</span>
+                </figcaption>
+            </figure>
+        </div>
+
+        <section class="cli">
+            <h2><span class="zh">命令行</span><span class="en">Command line</span></h2>
+            <p><span class="zh">同一套整理也可以写成规则，在 Mac、Windows 和 Linux 上运行。下面这条规则把下载文件夹里的 PDF 移到文档中的发票目录。</span><span class="en">The same kind of cleanup can be written as rules and run on Mac, Windows, and Linux. This rule moves PDFs from Downloads into an invoices folder.</span></p>
+            <pre><code>rules:
+  - name: Invoices
+    locations: ~/Downloads
+    filters:
+      - extension: pdf
+    actions:
+      - move: ~/Documents/Invoices/</code></pre>
+            <p><span class="zh">保存后运行 <code>organize sim</code>，先看将要发生的变化；确认之后再运行 <code>organize run</code>。安装包名是 organize-tool，代码以 MIT 许可公开。</span><span class="en">Run <code>organize sim</code> to see what would change, then <code>organize run</code> when it looks right. The package name is organize-tool. The code is MIT licensed.</span></p>
+        </section>
+
+        <p class="end">
+            <a href="https://github.com/zyggit/organize"><span class="zh">源码</span><span class="en">Source</span></a><span aria-hidden="true">·</span><span>MIT</span>
+        </p>
+    </main>
+    <script>
+        var root = document.documentElement;
+        var button = document.querySelector(".theme");
+        var langButtons = document.querySelectorAll(".langs button");
+        var langGroup = document.querySelector(".langs");
+        var description = document.querySelector('meta[name="description"]');
+        var images = document.querySelectorAll("img[data-alt-zh]");
+        var copy = {
+            "zh-Hans": {
+                title: "organize — 先预览，再整理文件",
+                description: "organize 用规则整理文件。桌面应用先给出预览，确认后才移动；命令行支持 Mac、Windows 与 Linux。",
+                toDark: "切换到深色",
+                toLight: "切换到浅色",
+                group: "语言"
+            },
+            en: {
+                title: "organize — Preview the plan, then move files",
+                description: "organize cleans up files with rules. The Mac app previews the plan before anything moves. The command line also runs on Windows and Linux.",
+                toDark: "Switch to dark",
+                toLight: "Switch to light",
+                group: "Language"
+            }
+        };
+        function currentLang() {
+            return root.lang === "en" ? "en" : "zh-Hans";
+        }
+        function syncLabel() {
+            var text = copy[currentLang()];
+            button.setAttribute("aria-label", root.classList.contains("dark") ? text.toLight : text.toDark);
+        }
+        function applyLang(lang) {
+            var next = lang === "en" ? "en" : "zh-Hans";
+            root.lang = next;
+            document.title = copy[next].title;
+            description.setAttribute("content", copy[next].description);
+            langGroup.setAttribute("aria-label", copy[next].group);
+            langButtons.forEach(function (item) {
+                item.setAttribute("aria-pressed", item.getAttribute("data-lang") === next ? "true" : "false");
+            });
+            images.forEach(function (img) {
+                img.alt = next === "en" ? img.getAttribute("data-alt-en") : img.getAttribute("data-alt-zh");
+            });
+            try { localStorage.setItem("lang", next === "en" ? "en" : "zh"); } catch (e) {}
+            syncLabel();
+        }
+        applyLang(currentLang());
+        langButtons.forEach(function (item) {
+            item.addEventListener("click", function () {
+                applyLang(item.getAttribute("data-lang"));
+            });
+        });
+        button.addEventListener("click", function () {
+            var dark = root.classList.toggle("dark");
+            try { localStorage.setItem("theme", dark ? "dark" : "light"); } catch (e) {}
+            syncLabel();
+        });
+    </script>
+</body>
+</html>
