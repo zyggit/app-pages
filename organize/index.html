@@ -54,39 +54,49 @@
                     <p class="role"><span class="zh">开源 · Mac 桌面应用 · 命令行支持 Mac、Windows、Linux</span><span class="en">Open source · Mac app · command line for Mac, Windows, and Linux</span></p>
                 </div>
             </div>
-            <p class="lede"><span class="zh">先列出每个文件要去哪里。你确认之后，应用才移动它们。文件在这台电脑上处理。</span><span class="en">It lists where every file will go. Nothing moves until you confirm. Files are handled on this computer.</span></p>
+            <p class="lede"><span class="zh">选择文件夹后扫描。确认之前不会改动任何文件。处理全程在这台电脑上。</span><span class="en">Choose a folder, then scan. Nothing changes until you confirm. Files stay on this computer.</span></p>
             <p class="actions"><a href="https://github.com/zyggit/organize"><span class="zh">在 GitHub 查看源码</span><span class="en">Source on GitHub</span></a></p>
             <ol class="flow">
-                <li><span class="zh">选方案</span><span class="en">Choose a plan</span></li>
+                <li><span class="zh">选择方案</span><span class="en">Choose a plan</span></li>
+                <li><span class="zh">设置文件夹</span><span class="en">Set folders</span></li>
                 <li><span class="zh">扫描</span><span class="en">Scan</span></li>
                 <li><span class="zh">预览</span><span class="en">Preview</span></li>
                 <li><span class="zh">整理</span><span class="en">Organize</span></li>
+                <li><span class="zh">结果</span><span class="en">Result</span></li>
             </ol>
         </div>
 
         <div class="windows">
             <figure class="window">
-                <img src="shots/home.jpg" width="2000" height="1281" alt="organize 首页，四个整理方案：按类型、按日期、旧安装包和重复文件" data-alt-zh="organize 首页，四个整理方案：按类型、按日期、旧安装包和重复文件" data-alt-en="organize home, with plans for file type, date, old installers, and duplicates">
+                <img src="shots/home.jpg" width="1600" height="1022" alt="organize 首页，四个整理工具：分类整理、照片归档、旧安装包和重复文件" data-alt-zh="organize 首页，四个整理工具：分类整理、照片归档、旧安装包和重复文件" data-alt-en="organize home, with tools for file type, photo dates, old installers, and duplicates">
                 <figcaption>
-                    <strong><span class="zh">四个方案</span><span class="en">Four plans</span></strong>
-                    <span class="zh">按类型整理下载文件夹，照片按日期归档，旧安装包进入隔离区，或找出内容相同的重复文件。</span>
-                    <span class="en">Sort Downloads by type, file photos by date, move old installers into quarantine, or find files with the same content.</span>
+                    <strong><span class="zh">四个工具，先预览再整理</span><span class="en">Four tools, preview first</span></strong>
+                    <span class="zh">分类整理只移动、不删除。照片按修改日期归档。旧安装包移入隔离区，可以恢复。重复文件要内容逐字节相同，保留哪一份由你选择。上次整理可以撤销，永久删除显示为从不。</span>
+                    <span class="en">Sorting by type only moves files. Photos are filed by modification date. Old installers go to quarantine and can be restored. Duplicates must match byte for byte, and you choose which copy to keep. The last run can be undone, and permanent deletion is shown as never.</span>
                 </figcaption>
             </figure>
             <figure class="window">
-                <img src="shots/preview.jpg" width="2000" height="1281" alt="organize 预览页，列出将移动、改名、进入隔离区或跳过的文件" data-alt-zh="organize 预览页，列出将移动、改名、进入隔离区或跳过的文件" data-alt-en="organize preview, listing files that will move, be renamed, enter quarantine, or be skipped" loading="lazy">
+                <img src="shots/by-type.jpg" width="1600" height="1022" alt="按类型整理的设置页，来源是下载文件夹，目标是文档中的整理文件夹" data-alt-zh="按类型整理的设置页，来源是下载文件夹，目标是文档中的整理文件夹" data-alt-en="Type-sort setup, from Downloads into a folder under Documents" loading="lazy">
                 <figcaption>
-                    <strong><span class="zh">确认前的预览</span><span class="en">Preview before anything changes</span></strong>
-                    <span class="zh">列表写明哪些文件会移动、因重名而改名、进入隔离区或被跳过。重名文件会改名留下，已有文件保持原样。</span>
-                    <span class="en">The list shows what will move, what gets a new name because of a clash, what enters quarantine, and what is skipped. A clash renames the incoming file and leaves the existing one as it is.</span>
+                    <strong><span class="zh">按类型归类</span><span class="en">Sort by type</span></strong>
+                    <span class="zh">选定来源和目标文件夹。文档、图片、视频、音频、压缩包、安装包和其他文件可以分别勾选。默认只看所选文件夹的第一层。扫描只读取文件信息；没下完的文件、系统文件、软链接和读不了的文件会跳过。</span>
+                    <span class="en">Pick a source folder and a destination. Documents, images, video, audio, archives, installers, and other files can each be included. By default only the top level of the chosen folder is scanned. A scan only reads file information. Incomplete downloads, system files, symlinks, and unreadable files are skipped.</span>
                 </figcaption>
             </figure>
             <figure class="window">
-                <img src="shots/quarantine.jpg" width="2000" height="1281" alt="organize 隔离区，旧安装包和重复文件可以恢复或移入回收站" data-alt-zh="organize 隔离区，旧安装包和重复文件可以恢复或移入回收站" data-alt-en="organize quarantine, where old installers and duplicate files can be restored or moved to the trash" loading="lazy">
+                <img src="shots/by-date.jpg" width="1600" height="1022" alt="图片按日期归档的设置页，结果放在整理文件夹下的年份和月份目录" data-alt-zh="图片按日期归档的设置页，结果放在整理文件夹下的年份和月份目录" data-alt-en="Photo filing setup, placing images in year and month folders" loading="lazy">
                 <figcaption>
-                    <strong><span class="zh">隔离区可以收回</span><span class="en">Quarantine can be undone</span></strong>
-                    <span class="zh">旧安装包和未保留的重复文件先放在这里，可以回到原位置。确认不需要之后，再移入系统回收站。应用不会自行清掉它们。整理记录可以撤销，撤销前还会再预览一次。</span>
-                    <span class="en">Old installers and duplicate copies you did not keep wait here, and can go back. After you decide they are unwanted, they move to the system trash. The app does not clear them on its own. A finished run can be undone, with another preview first.</span>
+                    <strong><span class="zh">按修改日期归档</span><span class="en">File by modification date</span></strong>
+                    <span class="zh">照片和截图放进「年 / 月」文件夹。这里用的是文件修改日期，不一定是拍摄日期。</span>
+                    <span class="en">Photos and screenshots go into year and month folders. The date used is when the file was last modified, which is not necessarily when the photo was taken.</span>
+                </figcaption>
+            </figure>
+            <figure class="window">
+                <img src="shots/installers.jpg" width="1600" height="1022" alt="旧安装包清理的设置页，可选 30、60、90 或 180 天，并移入隔离区" data-alt-zh="旧安装包清理的设置页，可选 30、60、90 或 180 天，并移入隔离区" data-alt-en="Old-installer cleanup, with a choice of 30, 60, 90, or 180 days, moving matches into quarantine" loading="lazy">
+                <figcaption>
+                    <strong><span class="zh">旧安装包进隔离区</span><span class="en">Old installers go to quarantine</span></strong>
+                    <span class="zh">可以选择超过 30、60、90 或 180 天的安装包。文件移入隔离区，并保留原来的来源记录。ZIP 压缩包默认不包含，因为里面可能还有别的文件。</span>
+                    <span class="en">Choose installers older than 30, 60, 90, or 180 days. They move into quarantine, which keeps a record of where they came from. Zip archives stay out unless you turn that option on, because an archive can hold other files.</span>
                 </figcaption>
             </figure>
         </div>
