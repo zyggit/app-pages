@@ -218,7 +218,39 @@ h1 {
     font-size: 16px;
 }
 
-.actions { margin: 1rem 0 0; }
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.9rem 1.25rem;
+    margin: 1rem 0 0;
+}
+
+.actions .download {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    min-height: 44px;
+    padding: 0.55rem 1rem;
+    border: 1px solid var(--fg);
+    border-radius: 8px;
+    background: var(--fg);
+    color: var(--bg);
+    text-decoration: none;
+}
+
+.actions .download:hover { opacity: 0.85; }
+
+.download-note,
+.download-status {
+    margin: 0.65rem 0 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.download-status { margin-top: 0.35rem; }
 
 .actions a,
 .end a {
